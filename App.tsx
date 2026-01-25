@@ -5,6 +5,16 @@ import { LandingPage } from './components/LandingPage';
 import { ExecutiveDesk } from './components/ExecutiveDesk';
 import { notifyProtocolSigma } from './services/communicationService';
 
+console.log(
+  "%cINSOLITO DRIVE - IMPERIAL SELECTION 2.0",
+  "color: #F5F5F5; font-size: 20px; font-weight: light; letter-spacing: 0.3em; text-transform: uppercase;"
+);
+
+console.log(
+  "%cProtocol 1705 C.C. Active // Data Oblivion Scheduled",
+  "color: #666; font-size: 10px; font-weight: bold; letter-spacing: 0.1em;"
+);
+
 const App: React.FC = () => {
   const [view, setView] = useState<'landing' | 'dashboard'>('landing');
   const [mandates, setMandates] = useState<Mandate[]>([
