@@ -207,10 +207,39 @@
             opacity: 0.3;
         }
 
-        footer {
-            font-size: 10px !important;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
+        /* Phase 13: Private Access / Insignia-Contact */
+        .portal-input {
+            background: transparent !important;
+            border: none !important;
+            border-bottom: 0.5px solid rgba(255, 255, 255, 0.2) !important;
+            color: #fff !important;
+            padding: 20px 0 !important;
+            width: 100% !important;
+            font-family: 'Inter', sans-serif !important;
+            font-size: 14px !important;
+            transition: border-color 0.8s ease !important;
+            border-radius: 0 !important;
+        }
+
+        .portal-input:focus {
+            outline: none !important;
+            border-bottom: 0.5px solid var(--gold-satin) !important;
+        }
+
+        .success-message {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #8a8a8a;
+            text-align: center;
+        }
+
+        .focus-mode {
+            transition: background-color 2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .focus-mode-active {
+            background-color: #060606 !important;
         }
     </style>
     <script type="importmap">
