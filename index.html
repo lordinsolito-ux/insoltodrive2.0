@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InsolitoDrive | Fiduciary Interposition</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@100;300;400;600&family=JetBrains+Mono:wght@100;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --obsidian: #050505;
+            --pearl: #F5F5F5;
+        }
+        body {
+            background-color: var(--obsidian);
+            color: var(--pearl);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        .serif { font-family: 'Cormorant Garamond', serif; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        
+        .fade-in { animation: fadeIn 2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .pearl-border { border-color: rgba(245, 245, 245, 0.05); }
+        
+        /* Minimalist scrollbar */
+        ::-webkit-scrollbar { width: 2px; }
+        ::-webkit-scrollbar-track { background: #000; }
+        ::-webkit-scrollbar-thumb { background: rgba(245, 245, 245, 0.1); }
+
+        .btn-fiduciary {
+            background-color: var(--pearl);
+            color: var(--obsidian);
+            transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--pearl);
+        }
+        .btn-fiduciary:hover {
+            letter-spacing: 0.15em;
+            background-color: transparent;
+            color: var(--pearl);
+            box-shadow: 0 0 40px rgba(245, 245, 245, 0.05);
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.38.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>

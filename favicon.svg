@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" fill="#050505"/>
+  <g fill="none" stroke="#f4f1ea" stroke-width="3">
+    <!-- Refined Solomon's Knot variant for small scale visibility -->
+    <path d="M50 15 C30 15, 15 30, 15 50 C15 70, 30 85, 50 85 C70 85, 85 70, 85 50 C85 30, 70 15, 50 15 Z" opacity="0.4" />
+    <path d="M50 15 L50 85 M15 50 L85 50" stroke-width="2" opacity="0.6"/>
+    <rect x="38" y="38" width="24" height="24" transform="rotate(45 50 50)" stroke-width="4" />
+    <circle cx="50" cy="50" r="8" fill="#f4f1ea" stroke="none" />
+  </g>
+</svg>

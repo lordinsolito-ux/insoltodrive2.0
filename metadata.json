@@ -1,0 +1,8 @@
+
+{
+  "name": "InsolitoDrive – Transactional Shield",
+  "description": "Fiduciary interposition and identity-shielding ecosystem for elite asset acquisition.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
