@@ -1,7 +1,5 @@
-
 import React, { useState } from 'react';
 import { Mandate } from '../types';
-import { conductFiduciaryAppraisal } from '../services/geminiService';
 import { Shield, ChevronRight, Clock, Scale, Timer } from 'lucide-react';
 
 interface Props {
@@ -15,14 +13,16 @@ export const MandateCard: React.FC<Props> = ({ mandate }) => {
   const requestAppraisal = async () => {
     if (appraisal) return;
     setLoading(true);
-    try {
-      const data = await conductFiduciaryAppraisal(mandate.asset_subject, mandate.budget_escrow);
-      setAppraisal(data);
-    } catch (e) {
-      console.error(e);
-    } finally {
+
+    // Protocol: Instant Fiduciary Verification (Static Logic)
+    setTimeout(() => {
+      setAppraisal({
+        strategy: "Interposizione reale senza rappresentanza garantita. Isolamento totale dell'identità tramite veicoli proxy istituzionali. Piena conformità Art. 1705 C.C.",
+        fiduciaryStructures: ["Holding Personale", "Trust Liquido", "Fiduciaria Professionale"],
+        privacyIndex: 99
+      });
       setLoading(false);
-    }
+    }, 1000);
   };
 
   const getStatusLabel = (status: string) => {
