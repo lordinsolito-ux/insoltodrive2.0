@@ -1,4 +1,4 @@
-<!-- InsolitoDrive Imperial v2.0.1 - Secured & Optimized -->
+<!-- InsolitoDrive Imperial - Secured & Optimized -->
 <!DOCTYPE html>
 <html lang="it">
 
@@ -13,13 +13,14 @@
         rel="stylesheet">
     <style>
         :root {
-            --obsidian: #050505;
-            --pearl: #F5F5F5;
+            --obsidian: #0D0D0D;
+            --panna: #E8E2D6;
+            --bronze: #B59A7D;
         }
 
         body {
             background-color: var(--obsidian);
-            color: var(--pearl);
+            color: var(--panna);
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
@@ -49,13 +50,13 @@
             }
         }
 
-        .pearl-border {
-            border-color: rgba(245, 245, 245, 0.05);
+        .luxury-border {
+            border-color: rgba(181, 154, 125, 0.1);
         }
 
-        /* Minimalist scrollbar */
+        /* Minimalist luxury scrollbar */
         ::-webkit-scrollbar {
-            width: 2px;
+            width: 3px;
         }
 
         ::-webkit-scrollbar-track {
@@ -63,23 +64,24 @@
         }
 
         ::-webkit-scrollbar-thumb {
-            background: rgba(245, 245, 245, 0.1);
+            background: var(--bronze);
         }
 
         .btn-fiduciary {
-            background-color: var(--pearl);
+            background-color: var(--panna);
             color: var(--obsidian);
-            transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+            transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
             position: relative;
             overflow: hidden;
-            border: 1px solid var(--pearl);
+            border: 1px solid var(--panna);
         }
 
         .btn-fiduciary:hover {
-            letter-spacing: 0.15em;
+            letter-spacing: 0.2em;
             background-color: transparent;
-            color: var(--pearl);
-            box-shadow: 0 0 40px rgba(245, 245, 245, 0.05);
+            color: var(--panna);
+            border-color: var(--bronze);
+            box-shadow: 0 0 50px rgba(181, 154, 125, 0.05);
         }
     </style>
     <script type="importmap">

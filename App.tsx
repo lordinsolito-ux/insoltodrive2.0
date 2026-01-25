@@ -6,13 +6,13 @@ import { ExecutiveDesk } from './components/ExecutiveDesk';
 import { notifyProtocolSigma } from './services/communicationService';
 
 console.log(
-  "%cINSOLITO DRIVE - IMPERIAL SELECTION 2.0",
-  "color: #8B7355; font-size: 24px; font-weight: bold; letter-spacing: 0.2em; text-shadow: 2px 2px #000; padding: 10px 0;"
+  "%cINSOLITO DRIVE - IMPERIAL SELECTION",
+  "color: #B59A7D; font-size: 24px; font-weight: bold; letter-spacing: 0.2em; text-shadow: 2px 2px #000; padding: 10px 0;"
 );
 
 console.log(
-  "%cProtocol 1705 C.C. // Absolute Identity Shielding",
-  "color: #F5F5F5; font-size: 11px; font-weight: 300; letter-spacing: 0.15em; border-top: 1px solid #222; padding-top: 5px; text-transform: uppercase;"
+  "%cProtocol 1705 C.C. // Absolute Fiduciary Shield",
+  "color: #E8E2D6; font-size: 11px; font-weight: 300; letter-spacing: 0.15em; border-top: 1px solid #222; padding-top: 5px; text-transform: uppercase;"
 );
 
 const App: React.FC = () => {
@@ -65,7 +65,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#050505] selection:bg-pearl selection:text-obsidian">
+    <div className="min-h-screen bg-[#0D0D0D] selection:bg-[#E8E2D6] selection:text-[#0D0D0D]">
       {view === 'landing' ? (
         <LandingPage onInitialize={handleAuthorization} />
       ) : (
