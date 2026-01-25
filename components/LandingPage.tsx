@@ -1,231 +1,182 @@
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { SOLOMON_KNOT } from '../constants';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 interface Props {
   onInitialize: () => void;
 }
 
-export const LandingPage: React.FC<Props> = ({ onInitialize }) => {
-  const liquidTransition = { duration: 2.5, ease: [0.16, 1, 0.3, 1] };
+const RevealOnScroll: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className }) => {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      },
+      { threshold: 0.1 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#0D0D0D] text-[#E8E2D6] selection:bg-[#B59A7D] selection:text-[#0D0D0D]">
+    <div ref={ref} className={`reveal-on-scroll ${className}`}>
+      {children}
+    </div>
+  );
+};
 
-      {/* Dynamic Background - Almost Static Luxury */}
-      <motion.div
-        animate={{ opacity: [0.02, 0.04, 0.02] }}
-        transition={{ duration: 15, repeat: Infinity }}
-        className="fixed inset-0 bg-gradient-to-b from-[#B59A7D]/5 to-transparent pointer-events-none z-0"
-      />
+export const LandingPage: React.FC<Props> = ({ onInitialize }) => {
+  const { scrollYProgress } = useScroll();
+  const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
 
-      {/* Main Editorial Container */}
-      <div className="relative z-10 w-full max-w-screen-2xl mx-auto px-10 md:px-24">
+  return (
+    <div className="min-h-screen bg-[#0D0D0D] text-[#FFFFFF] selection:bg-[#C5A059] selection:text-[#0D0D0D]">
 
-        {/* Section 1: The Entrance (Hero) - Radical Minimalism */}
-        <motion.section
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={liquidTransition}
-          className="min-h-screen flex flex-col justify-center space-y-32 py-40"
-        >
-          <div className="space-y-12">
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 0.15 }}
-              transition={{ duration: 4 }}
-              className="w-16 h-16 text-[#B59A7D]"
-            >
-              {SOLOMON_KNOT}
-            </motion.div>
-
-            <div className="space-y-4">
-              <p className="mono text-[9px] uppercase tracking-[1.2em] text-[#B59A7D]/60 font-medium">
-                Michael Sergio Jara Lloctun — Private Fiduciary Principal
-              </p>
-              <h1 className="serif text-6xl md:text-[120px] font-thin tracking-tighter leading-[0.9] text-[#E8E2D6]">
-                Invisibilità <br />
-                <span className="italic opacity-60 ml-20 md:ml-60 underline decoration-[#B59A7D]/10 underline-offset-8">come Architettura.</span>
-              </h1>
-            </div>
-          </div>
-
-          <div className="flex justify-end pr-10 md:pr-40">
-            <div className="max-w-md space-y-12">
-              <p className="serif italic text-2xl md:text-3xl text-[#B59A7D]/80 leading-relaxed font-light">
-                "Nel 2026, l'unico vero lusso è poter agire senza essere osservati."
-              </p>
-              <motion.button
-                whileHover={{ scale: 1.02, letterSpacing: '0.6em', color: '#B59A7D' }}
-                onClick={onInitialize}
-                className="text-[10px] uppercase tracking-[0.4em] text-[#E8E2D6]/40 border-b border-[#B59A7D]/20 pb-2 transition-all duration-1000"
-              >
-                Richiedi Protocollo d'Accesso
-              </motion.button>
-            </div>
-          </div>
-        </motion.section>
-
-        {/* Fiduciary Divider */}
-        <div className="fiduciary-line-bronze opacity-20" />
-
-        {/* Section 2: The Manifesto - Asymmetrical Philosophy */}
-        <section className="concierge-spacing grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={liquidTransition}
-            className="md:col-start-2 md:col-span-10 space-y-24"
-          >
-            <h2 className="serif text-5xl md:text-8xl text-[#B59A7D]/10 absolute -top-10 -left-10 pointer-events-none uppercase tracking-tighter select-none">Philosophy</h2>
-            <div className="space-y-16 relative z-10">
-              <p className="serif text-3xl md:text-5xl text-[#E8E2D6]/90 leading-[1.4] font-light max-w-5xl">
-                Operiamo nell'ombra per proteggere la vostra luce. InsolitoDrive è il punto di interposizione fiduciaria dove la privacy non è una promessa, ma un'opera di ingegneria legale.
-              </p>
-              <div className="flex items-center space-x-8">
-                <div className="w-20 h-[0.5px] bg-[#B59A7D]/30" />
-                <span className="mono text-[8px] uppercase tracking-[0.8em] text-[#B59A7D]/60 italic font-bold">The Art of Invisibility</span>
-              </div>
-            </div>
-          </motion.div>
-        </section>
-
-        {/* Section 3: The Trust Pillars - Editorial Displacement */}
-        <section className="concierge-spacing space-y-96 relative">
-
-          {/* Pillar 01 - Establish - Left Aligned */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={liquidTransition}
-            className="grid grid-cols-1 md:grid-cols-12"
-          >
-            <div className="md:col-span-6 space-y-10 group">
-              <span className="mono text-[9px] text-[#B59A7D] tracking-[0.6em] block mb-4 uppercase">Stage 01 // The Mandate</span>
-              <h3 className="serif text-5xl md:text-7xl font-light text-[#E8E2D6] group-hover:italic transition-all duration-1000">ESTABLISH</h3>
-              <div className="fiduciary-line-bronze opacity-20 my-10" />
-              <p className="serif text-xl border-l border-[#B59A7D]/10 pl-8 italic text-[#E8E2D6]/50 leading-relaxed font-light">
-                "La formalizzazione istantanea del mandato senza rappresentanza (Art. 1705 C.C.). Qui, la nostra identità diventa il vostro scudo legale primario."
-              </p>
-            </div>
-          </motion.div>
-
-          {/* Pillar 02 - Execute - Center/Right Aligned */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={liquidTransition}
-            className="grid grid-cols-1 md:grid-cols-12"
-          >
-            <div className="md:col-start-7 md:col-span-6 space-y-10 group text-right flex flex-col items-end">
-              <span className="mono text-[9px] text-[#B59A7D] tracking-[0.6em] block mb-4 uppercase">Stage 02 // The Execution</span>
-              <h3 className="serif text-5xl md:text-7xl font-light text-[#E8E2D6] group-hover:italic transition-all duration-1000">EXECUTE</h3>
-              <div className="fiduciary-line-bronze opacity-20 my-10" />
-              <p className="serif text-xl border-r border-[#B59A7D]/10 pr-8 italic text-[#E8E2D6]/50 leading-relaxed font-light">
-                "Gestione di acquisizioni di asset rari tramite l'Executive Desk. Il mondo vede il volto del Principal, mentre voi detenete il potere assoluto dell'asset."
-              </p>
-            </div>
-          </motion.div>
-
-          {/* Pillar 03 - Erase - Centered */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={liquidTransition}
-            className="flex flex-col items-center text-center space-y-10 group"
-          >
-            <span className="mono text-[9px] text-[#B59A7D] tracking-[0.6em] block mb-4 uppercase">Stage 03 // The Oblivion</span>
-            <h3 className="serif text-5xl md:text-8xl font-light text-[#E8E2D6] group-hover:italic transition-all duration-1000 tracking-tighter">ERASE</h3>
-            <div className="w-1/3 fiduciary-line-bronze opacity-20 my-10" />
-            <p className="serif text-2xl italic text-[#E8E2D6]/50 leading-relaxed font-light max-w-2xl">
-              "Il ritorno al silenzio originario. Protocollo OMEGA: distruzione certificata di ogni traccia digitale entro 48 ore dalla missione."
-            </p>
-          </motion.div>
-        </section>
-
-        {/* Section 4: The Superiority (Legal) - Charcoal Block */}
-        <motion.section
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="concierge-spacing"
-        >
-          <div className="bg-[#121212] p-10 md:p-32 luxury-border border grid grid-cols-1 md:grid-cols-2 gap-32">
-            <div className="space-y-12">
-              <span className="mono text-[9px] text-[#B59A7D] uppercase tracking-[1em]">Superiorità Legale Europea</span>
-              <h2 className="serif text-5xl md:text-7xl font-light leading-tight text-[#E8E2D6]">Vantaggio <br /><span className="italic opacity-70 italic">Fiduciario</span></h2>
-              <p className="serif text-xl text-[#E8E2D6]/40 leading-relaxed font-light">
-                L'Articolo 1705 del Codice Civile italiano offre una blindatura dell'identità che supera la flessibilità dei trust anglosassoni, garantendo un'interposizione reale e impenetrabile.
-              </p>
-            </div>
-            <div className="space-y-16">
-              {[
-                { art: 'Art. 1705 C.C.', label: 'Interposizione Reale Senza Rappresentanza' },
-                { art: 'Art. 2222 C.C.', label: 'Consulenza Strategica ad Alto Profilo' },
-                { art: 'GDPR / OMEGA', label: 'Protocollo di Estinzione Dati Certificata' }
-              ].map(item => (
-                <div key={item.art} className="border-b border-[#B59A7D]/10 pb-8 flex justify-between items-end group">
-                  <div>
-                    <p className="text-[#B59A7D] text-2xl serif font-light group-hover:italic transition-all">{item.art}</p>
-                    <p className="text-[10px] text-[#E8E2D6]/40 uppercase tracking-[0.4em] font-medium mt-2">{item.label}</p>
-                  </div>
-                  <div className="w-2 h-2 rounded-full border border-[#B59A7D]/40 group-hover:bg-[#B59A7D] transition-all duration-700" />
-                </div>
-              ))}
-            </div>
-          </div>
-        </motion.section>
-
-        {/* Section 5: The Final Access - The Call */}
-        <motion.section
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 3 }}
-          className="min-h-screen flex flex-col items-center justify-center space-y-24 py-40 text-center"
-        >
-          <div className="space-y-12">
-            <h2 className="serif text-6xl md:text-9xl font-thin tracking-tighter text-[#E8E2D6]">Private Access</h2>
-            <p className="serif italic text-2xl md:text-4xl text-[#E8E2D6]/30 max-w-4xl mx-auto leading-relaxed">
-              "L'accesso al nostro network è riservato per invito o valutazione di integrità. Iniziate oggi il vostro percorso verso l'invisibilità."
-            </p>
-          </div>
-
-          <div className="flex flex-col items-center space-y-10">
-            <motion.button
-              whileHover={{ scale: 1.05, letterSpacing: '0.8em', backgroundColor: '#E8E2D6', color: '#0D0D0D' }}
-              onClick={onInitialize}
-              className="px-32 py-8 text-[11px] font-semibold uppercase tracking-[0.5em] border border-[#B59A7D]/30 text-[#B59A7D] transition-all duration-1000"
-            >
-              Inizia Consultazione
-            </motion.button>
-            <p className="mono text-[8px] uppercase tracking-[0.6em] text-[#B59A7D]/20">
-              End-to-End Encryption Enabled • Node: Zurich_Principal
-            </p>
-          </div>
-        </motion.section>
-
-      </div>
-
-      {/* Institutional Footer */}
-      <footer className="relative z-10 px-10 md:px-24 py-24 flex flex-col md:flex-row justify-between items-center border-t border-[#B59A7D]/5 bg-[#0A0A0A]/40 backdrop-blur-3xl space-y-10 md:space-y-0">
-        <div className="flex items-center space-x-8">
-          <div className="w-8 h-[0.5px] bg-[#B59A7D]/40" />
-          <span className="mono text-[9px] uppercase tracking-[0.6em] text-[#B59A7D]/50 font-medium">Michael Sergio Jara Lloctun — Principal</span>
+      {/* Absolute Minimalism Navigation */}
+      <nav className="fixed top-0 left-0 w-full z-50 px-10 py-12 flex justify-between items-center px-10 md:px-24">
+        <div className="w-8 h-8 text-[#C5A059]/40">{SOLOMON_KNOT}</div>
+        <div className="flex flex-col items-center">
+          <span className="serif text-[10px] uppercase tracking-[0.5em] text-[#C5A059]">Insolito Drive</span>
         </div>
-        <div className="mono text-[8px] text-[#E8E2D6]/10 flex space-x-12 uppercase tracking-[0.3em]">
-          <span>SECURE_ID_0xD99A</span>
-          <span className="text-[#B59A7D]/20">Establish // Execute // Erase</span>
+        <button className="sans-ui text-[10px] text-[#FFFFFF]/40 hover:text-[#C5A059] transition-all">
+          Menu
+        </button>
+      </nav>
+
+      {/* Hero Section: The Impression */}
+      <motion.section
+        style={{ opacity }}
+        className="h-screen flex flex-col items-center justify-center text-center px-6"
+      >
+        <RevealOnScroll className="space-y-12">
+          <p className="sans-ui text-[9px] text-[#C5A059]/80 mb-6">Michael Sergio Jara Lloctun — Principal</p>
+          <h1 className="serif text-6xl md:text-[110px] font-thin leading-none tracking-tighter">
+            Invisibilità come Architettura di<br />
+            <span className="italic opacity-80 serif">Puro Potere.</span>
+          </h1>
+          <div className="pt-16">
+            <button
+              onClick={onInitialize}
+              className="button-luxury"
+            >
+              Inizia Protocollo
+            </button>
+          </div>
+        </RevealOnScroll>
+      </motion.section>
+
+      {/* Section 2: The Concept (Centered whitespace) */}
+      <section className="luxury-spacing flex flex-col items-center justify-center relative overflow-hidden">
+        <div className="absolute top-0 w-full h-[0.5px] bg-[#FFFFFF]/10" />
+        <RevealOnScroll className="max-w-4xl px-8 text-center space-y-20">
+          <p className="serif italic text-3xl md:text-5xl text-[#C5A059]/90 font-light leading-relaxed">
+            "La trasparenza è l'illusione della sicurezza. La vera libertà d'acquisto nasce dal silenzio assoluto dell'interposizione."
+          </p>
+          <div className="w-20 h-[0.5px] bg-[#C5A059]/40 mx-auto" />
+          <p className="serif text-xl md:text-2xl text-[#FFFFFF]/60 leading-relaxed font-light max-w-2xl mx-auto">
+            Operiamo nell'ombra per proteggere la vostra luce. InsolitoDrive è il punto di interposizione fiduciaria dove ogni transazione è un atto di ingegneria legale dedicato all'élite.
+          </p>
+        </RevealOnScroll>
+        <div className="absolute bottom-0 w-full h-[0.5px] bg-[#FFFFFF]/10" />
+      </section>
+
+      {/* Section 3: The Services (Vertical Reveal List) */}
+      <section className="luxury-spacing px-10 md:px-24">
+        <RevealOnScroll className="space-y-32">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-20">
+            <h2 className="serif text-5xl md:text-8xl font-thin tracking-tighter">I Pilastri</h2>
+            <span className="sans-ui text-[9px] text-[#C5A059]/40 border-b border-[#C5A059]/20 pb-2">Art. 1705 C.C. Compliance</span>
+          </div>
+
+          <div className="flex flex-col border-t border-[#FFFFFF]/10">
+            {[
+              { id: '01', title: 'The Mandate', desc: 'La nascita della vostra ombra legale. Formalizziamo l\'incarico fiduciario per blindare l\'identità del Beneficial Owner.' },
+              { id: '02', title: 'The Proxy', desc: 'L\'azione senza traccia. Gestiamo acquisizioni di asset rari in tutto il mondo tramite il nostro Executive Desk fiduciario.' },
+              { id: '03', title: 'The Oblivion', desc: 'Il ritorno al silenzio. Protocollo OMEGA: distruzione certificata di ogni record digitale entro 48 ore dalla missione.' }
+            ].map(item => (
+              <div key={item.id} className="group border-b border-[#FFFFFF]/10 py-20 cursor-crosshair">
+                <div className="flex justify-between items-center overflow-hidden">
+                  <div className="flex items-center space-x-12">
+                    <span className="mono text-[10px] text-[#C5A059]/40 font-bold tracking-widest">{item.id}</span>
+                    <h3 className="serif text-4xl md:text-6xl text-[#FFFFFF]/80 group-hover:text-[#C5A059] group-hover:italic transition-all duration-1000 group-hover:translate-x-10 transform">
+                      {item.title}
+                    </h3>
+                  </div>
+                  <div className="w-0 group-hover:w-full max-w-md transition-all duration-1000 opacity-0 group-hover:opacity-100 pr-10 hidden md:block">
+                    <p className="serif text-lg italic text-[#FFFFFF]/40 font-light leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+                {/* Mobile Desc (Always visible but subtle) */}
+                <p className="md:hidden mt-10 serif italic text-[#FFFFFF]/30 text-lg leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </RevealOnScroll>
+      </section>
+
+      {/* Section 4: The Principal (Superiorità Legale) */}
+      <section className="luxury-spacing bg-[#121212] px-10 md:px-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
+          <RevealOnScroll className="space-y-12">
+            <span className="sans-ui text-[9px] text-[#C5A059] tracking-[1em]">Superiorità Legale Europa</span>
+            <h2 className="serif text-5xl md:text-7xl font-thin leading-tight">Il Vantaggio<br />Fiduciario.</h2>
+            <p className="serif text-xl text-[#FFFFFF]/60 leading-relaxed font-light">
+              La blindatura offerta dall'ordinamento italiano (Art. 1705 e 2222 C.C.) garantisce un'interposizione reale e impenetrabile, superiore a qualsiasi modello anglosassone.
+            </p>
+          </RevealOnScroll>
+          <RevealOnScroll className="grid grid-cols-1 gap-12 border-l border-[#C5A059]/10 pl-12 md:pl-24">
+            {[
+              { art: 'Art. 1705 C.C.', label: 'Interposizione Reale Senza Rappresentanza' },
+              { art: 'Art. 2222 C.C.', label: 'Servizi Intellettuali d\'Alta Strategia' },
+              { art: 'GDPR / OMEGA', label: 'Diritto Assoluto all\'Oblio Digitale' }
+            ].map(item => (
+              <div key={item.art} className="space-y-2 group">
+                <p className="text-[#C5A059] text-2xl serif font-light group-hover:italic transition-all duration-700">{item.art}</p>
+                <p className="sans-ui text-[9px] text-[#FFFFFF]/30 tracking-widest">{item.label}</p>
+              </div>
+            ))}
+          </RevealOnScroll>
+        </div>
+      </section>
+
+      {/* Section 5: The Final Access (Minimalist Call) */}
+      <section className="luxury-spacing flex flex-col items-center justify-center text-center space-y-24 px-6 min-h-[80vh]">
+        <RevealOnScroll className="space-y-16">
+          <h2 className="serif text-6xl md:text-9xl font-thin tracking-tighter">Private Access</h2>
+          <p className="serif italic text-2xl md:text-3xl text-[#FFFFFF]/30 max-w-3xl mx-auto leading-relaxed">
+            "Ogni collaborazione inizia con una valutazione di integrità. L'accesso al nostro network è riservato agli eletti del patrimonio."
+          </p>
+          <div className="pt-12">
+            <button
+              onClick={onInitialize}
+              className="button-luxury"
+            >
+              Inizia Valutazione
+            </button>
+          </div>
+          <p className="mono text-[8px] uppercase tracking-[0.8em] text-[#C5A059]/30 pt-10">
+            Secured Fiduciary Connection • Est. 2026
+          </p>
+        </RevealOnScroll>
+      </section>
+
+      {/* Footer: Absolute Silence */}
+      <footer className="px-10 md:px-24 py-16 flex flex-col md:flex-row justify-between items-center opacity-30 border-t border-[#FFFFFF]/5">
+        <span className="sans-ui text-[8px] tracking-[0.6em] text-[#C5A059]">Michael Sergio Jara Lloctun — Principal</span>
+        <div className="mono text-[8px] flex space-x-12 uppercase tracking-widest mt-10 md:mt-0">
+          <span>Shield_ID: 0xD99A</span>
           <span>© 2026</span>
         </div>
       </footer>
-
     </div>
   );
 };

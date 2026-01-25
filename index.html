@@ -14,13 +14,14 @@
     <style>
         :root {
             --obsidian: #0D0D0D;
-            --panna: #E8E2D6;
-            --bronze: #B59A7D;
+            --white: #FFFFFF;
+            --ivory: #F4F4F2;
+            --gold-satin: #C5A059;
         }
 
         body {
             background-color: var(--obsidian);
-            color: var(--panna);
+            color: var(--white);
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
@@ -28,39 +29,61 @@
 
         .serif {
             font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .sans-ui {
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 12px;
         }
 
         .mono {
             font-family: 'JetBrains Mono', monospace;
         }
 
-        .fade-in {
-            animation: fadeIn 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .luxury-border {
-            border-color: rgba(181, 154, 125, 0.08);
-        }
-
-        .fiduciary-line-bronze {
+        /* Essential Insignia Dividers */
+        .fiduciary-line {
             height: 0.5px;
-            background-color: rgba(181, 154, 125, 0.15);
+            background-color: rgba(255, 255, 255, 0.2);
             width: 100%;
         }
 
-        /* Minimalist luxury scrollbar - almost invisible */
+        /* Component: Luxury Button */
+        .button-luxury {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 15px 40px;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            cursor: pointer;
+            border-radius: 1px;
+        }
+
+        .button-luxury:hover {
+            background: var(--white);
+            color: var(--obsidian);
+            border-color: var(--white);
+        }
+
+        /* Motion: Reveal on Scroll */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1.2s ease-out;
+        }
+
+        .reveal-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Minimalist luxury scrollbar */
         ::-webkit-scrollbar {
             width: 2px;
         }
@@ -70,35 +93,11 @@
         }
 
         ::-webkit-scrollbar-thumb {
-            background: rgba(181, 154, 125, 0.05);
-            border-radius: 10px;
+            background: rgba(197, 160, 89, 0.1);
         }
 
-        .btn-fiduciary {
-            background-color: var(--panna);
-            color: var(--obsidian);
-            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-            overflow: hidden;
-            border: 1px solid var(--panna);
-        }
-
-        .btn-fiduciary:hover {
-            letter-spacing: 0.4em;
-            background-color: transparent;
-            color: var(--panna);
-            border-color: rgba(181, 154, 125, 0.4);
-            box-shadow: 0 0 60px rgba(181, 154, 125, 0.03);
-        }
-
-        .concierge-spacing {
-            padding: 12rem 0;
-        }
-
-        @media (min-width: 1024px) {
-            .concierge-spacing {
-                padding: 18rem 0;
-            }
+        .luxury-spacing {
+            padding: 160px 0;
         }
     </style>
     <script type="importmap">
