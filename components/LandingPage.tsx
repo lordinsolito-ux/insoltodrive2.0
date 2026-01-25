@@ -1,7 +1,7 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import { SOLOMON_KNOT } from '../constants';
 import { motion, AnimatePresence, useScroll, useTransform, useInView } from 'framer-motion';
+import IntroSplash from './IntroSplash';
 
 // Asset Paths (Local)
 const ARCH_IMG = "/assets/arch.png";
@@ -60,47 +60,7 @@ export const LandingPage: React.FC<Props> = ({ onInitialize }) => {
 
       <AnimatePresence mode="wait">
         {!ritualComplete ? (
-          /* THE RITUAL: PRE-LANDING INTRO */
-          <motion.section
-            key="ritual"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 2 }}
-            className="fixed inset-0 z-[100] bg-[#0D0D0D] flex flex-col items-center justify-center px-10"
-          >
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 2.5, delay: 0.5 }}
-              className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-12 gap-10"
-            >
-              <div className="md:col-span-8 md:text-left space-y-12">
-                <h1 className="hero-title text-5xl md:text-8xl">
-                  L’arte del silenzio è l’ultimo vero lusso.
-                </h1>
-                <div className="hero-subtitle">
-                  Un privilegio concesso esclusivamente a chi ha imparato a esistere senza apparire.
-                </div>
-              </div>
-
-              <div className="md:col-start-10 md:col-span-3 flex flex-col items-center md:items-end justify-center space-y-16 pt-20 md:pt-0">
-                <motion.div
-                  animate={{ opacity: [0.2, 0.4, 0.2] }}
-                  transition={{ duration: 5, repeat: Infinity }}
-                  className="w-16 h-16 text-[#C5A059]/30"
-                >
-                  {SOLOMON_KNOT}
-                </motion.div>
-                <button
-                  onClick={() => setRitualComplete(true)}
-                  className="button-luxury"
-                >
-                  [ ENTRA ]
-                </button>
-              </div>
-            </motion.div>
-          </motion.section>
+          <IntroSplash key="ritual" onFinish={() => setRitualComplete(true)} />
         ) : (
           /* THE REVELATION: FULL LANDING CONTENT */
           <motion.div
