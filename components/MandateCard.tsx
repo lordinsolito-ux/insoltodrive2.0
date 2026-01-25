@@ -39,7 +39,7 @@ export const MandateCard: React.FC<Props> = ({ mandate }) => {
 
   const getStatusStyle = (status: string) => {
     switch (status) {
-      case 'FUNDED': return 'text-[#C5A059] border-[#C5A059]/20 bg-[#C5A059]/[0.05] shadow-[0_0_15px_rgba(197,160,89,0.1)]';
+      case 'FUNDED': return 'text-[#C5A059] border-[#C5A059]/30 bg-[#C5A059]/[0.05] shadow-[0_0_15px_rgba(197,160,89,0.1)]';
       case 'PROCUREMENT': return 'text-[#C5A059] border-[#C5A059]/20 bg-[#C5A059]/[0.02] animate-pulse';
       case 'EXECUTED': return 'text-[#FFFFFF] opacity-40 border-[#FFFFFF]/10';
       case 'DELIVERED': return 'text-[#C5A059]/60 border-[#C5A059]/10 bg-[#C5A059]/[0.01]';
@@ -48,7 +48,7 @@ export const MandateCard: React.FC<Props> = ({ mandate }) => {
   };
 
   return (
-    <div className="bg-[#0B0B0B]/90 backdrop-blur-3xl border border-[#C5A059]/10 p-12 rounded-sm group hover:border-[#C5A059]/30 transition-all duration-1000 relative overflow-hidden">
+    <div className="bg-[#0B0B0B]/90 backdrop-blur-3xl border border-[#C5A059]/10 p-12 group hover:border-[#C5A059]/30 transition-all duration-1000 relative overflow-hidden">
       {/* 0.5pt Fiduciary Accent */}
       <div className="absolute top-0 left-0 w-[0.5px] h-full bg-gradient-to-b from-transparent via-[#C5A059]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
 
@@ -83,7 +83,7 @@ export const MandateCard: React.FC<Props> = ({ mandate }) => {
             </div>
             <div className="space-y-2 border-l border-[#C5A059]/10 pl-8">
               <span className="sans-ui text-[9px] text-[#C5A059]/40 font-bold block">Current Stage</span>
-              <span className={`inline-block px-5 py-2 border rounded-sm text-[9px] font-bold uppercase tracking-[0.3em] ${getStatusStyle(mandate.status)}`}>
+              <span className={`inline-block px-5 py-2 border text-[9px] font-bold uppercase tracking-[0.3em] ${getStatusStyle(mandate.status)}`}>
                 {getStatusLabel(mandate.status)}
               </span>
             </div>
@@ -101,7 +101,7 @@ export const MandateCard: React.FC<Props> = ({ mandate }) => {
                 <p className="mono text-[#FFFFFF]/30 text-[10px] tracking-widest">47:59:59</p>
               </div>
             )}
-            <div className="w-12 h-12 border border-[#C5A059]/10 rounded-full flex items-center justify-center text-[#C5A059]/20 group-hover:text-[#C5A059]/60 transition-colors">
+            <div className="w-12 h-12 border border-[#C5A059]/10 flex items-center justify-center text-[#C5A059]/20 group-hover:text-[#C5A059]/60 transition-colors">
               <Shield size={20} />
             </div>
           </div>
@@ -123,7 +123,7 @@ export const MandateCard: React.FC<Props> = ({ mandate }) => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
             <div className="space-y-6">
               <div className="flex items-center space-x-3">
-                <div className="w-1 h-1 bg-[#C5A059] rounded-full shadow-[0_0_10px_#C5A059]" />
+                <div className="w-1 h-1 bg-[#C5A059] shadow-[0_0_10px_#C5A059]" />
                 <span className="sans-ui text-[9px] text-[#C5A059]/60 font-bold">Fiduciary Strategy</span>
               </div>
               <p className="serif italic text-xl text-[#FFFFFF]/60 leading-relaxed indent-8">
@@ -135,7 +135,7 @@ export const MandateCard: React.FC<Props> = ({ mandate }) => {
                 <span className="sans-ui text-[9px] text-[#C5A059]/60 font-bold block text-center md:text-left">Executive Proxy Structures</span>
                 <div className="flex flex-wrap gap-3">
                   {appraisal.fiduciaryStructures.map((s: string) => (
-                    <span key={s} className="sans-ui text-[8px] px-5 py-2 border border-[#C5A059]/10 bg-[#C5A059]/[0.02] rounded-sm text-[#C5A059]/60 hover:text-[#FFFFFF] hover:border-[#C5A059]/40 transition-all">{s}</span>
+                    <span key={s} className="sans-ui text-[8px] px-5 py-2 border border-[#C5A059]/10 bg-[#C5A059]/[0.02] text-[#C5A059]/60 hover:text-[#FFFFFF] hover:border-[#C5A059]/40 transition-all">{s}</span>
                   ))}
                 </div>
               </div>

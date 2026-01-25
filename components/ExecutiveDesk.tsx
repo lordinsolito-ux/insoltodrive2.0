@@ -50,7 +50,7 @@ export const ExecutiveDesk: React.FC<Props> = ({ mandates, onNewMandate }) => {
       <div className="fixed bottom-32 right-6 lg:hidden z-50">
         <button
           onClick={handlePanic}
-          className="w-14 h-14 bg-red-900/10 border border-red-900/40 rounded-full flex items-center justify-center text-red-900 shadow-[0_0_20px_rgba(153,27,27,0.2)]"
+          className="w-14 h-14 bg-red-900/10 border border-red-900/40 flex items-center justify-center text-red-900 shadow-[0_0_20px_rgba(153,27,27,0.2)]"
         >
           <Trash2 size={24} />
         </button>
@@ -91,7 +91,7 @@ export const ExecutiveDesk: React.FC<Props> = ({ mandates, onNewMandate }) => {
             <PrivacyLevel />
             <button
               onClick={onNewMandate}
-              className="group flex items-center space-x-4 border border-[#C5A059]/20 px-10 py-5 text-[10px] uppercase tracking-[0.4em] text-[#C5A059]/60 hover:text-[#FFFFFF] hover:border-[#C5A059]/40 transition-all duration-1000 rounded-sm bg-[#C5A059]/[0.02] hover:bg-[#C5A059]/[0.05]"
+              className="group flex items-center space-x-4 border border-[#C5A059]/20 px-10 py-5 text-[10px] uppercase tracking-[0.4em] text-[#C5A059]/60 hover:text-[#FFFFFF] hover:border-[#C5A059]/40 transition-all duration-1000 bg-[#C5A059]/[0.02] hover:bg-[#C5A059]/[0.05]"
             >
               <Plus size={16} className="group-hover:rotate-90 transition-transform duration-700" />
               <span>New Mandate</span>
@@ -107,7 +107,7 @@ export const ExecutiveDesk: React.FC<Props> = ({ mandates, onNewMandate }) => {
               ))}
             </div>
           ) : (
-            <div className="py-64 text-center border border-dashed border-[#C5A059]/10 rounded-sm bg-[#FFFFFF]/[0.01]">
+            <div className="py-64 text-center border border-dashed border-[#C5A059]/10 bg-[#FFFFFF]/[0.01]">
               <EyeOff size={40} className="mx-auto text-[#C5A059]/20 mb-10 opacity-20" />
               <p className="serif italic text-[#FFFFFF]/40 text-3xl font-light">The ledger is currently blank.</p>
               <p className="sans-ui text-[10px] text-[#C5A059]/40 mt-6">Awaiting Fiduciary Instructions</p>
@@ -133,7 +133,7 @@ export const ExecutiveDesk: React.FC<Props> = ({ mandates, onNewMandate }) => {
               <p className="sans-ui text-[9px] text-[#C5A059]/60 font-light mb-1 italic">Michael Sergio Jara Lloctun</p>
               <p className="sans-ui text-[8px] text-[#C5A059]/40">Confidential Fiduciary Gateway</p>
             </div>
-            <div className="w-10 h-10 border border-[#C5A059]/10 rounded-full flex items-center justify-center text-[#C5A059]/40">
+            <div className="w-10 h-10 border border-[#C5A059]/10 flex items-center justify-center text-[#C5A059]/40">
               <Clock size={16} />
             </div>
           </div>
