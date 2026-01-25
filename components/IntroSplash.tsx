@@ -8,13 +8,13 @@ interface IntroSplashProps {
 }
 
 /**
- * THE PROTOCOL OF ABSENCE: INSIGNIA EDITION
- * A multi-stage ritual designed to filter the noise and establish fiduciary authority.
+ * THE RITUAL OF SILENCE
+ * A multi-stage ritual designed to establish fiduciary authority.
  */
 const IntroSplash: React.FC<IntroSplashProps> = ({ onFinish }) => {
     const [step, setStep] = useState(0); // 0: Start, 1: Black Silence, 2: Typewriter, 3: Logo Reveal, 4: Finish
     const [displayText, setDisplayText] = useState("");
-    const fullText = "Il vero lusso non è quello che vedi. È l'arte di scomparire per lasciare spazio alla tua libertà.";
+    const fullText = "L’arte del silenzio è l’ultimo vero lusso. Un privilegio concesso esclusivamente a chi ha imparato a esistere senza apparire.";
     const audioRef = useRef<HTMLAudioElement | null>(null);
     const audioSrc = "https://www.dropbox.com/scl/fi/trkgfjejfgayjdkgqvt75/Drive-in-Style.mp3?rlkey=ep7dkuq7hl7swnpys0m1p7c6a&e=1&st=ccy55v2q&raw=1";
 
@@ -83,7 +83,7 @@ const IntroSplash: React.FC<IntroSplashProps> = ({ onFinish }) => {
                         </div>
 
                         <div className="flex flex-col items-center space-y-6">
-                            <span className="sans-ui text-[9px] text-[#C5A059]/40 tracking-[1.2em] uppercase">Inizializza Protocollo</span>
+                            <span className="sans-ui text-[9px] text-[#C5A059]/40 tracking-[1.2em] uppercase">Private Fiduciary Access</span>
                             <div className="button-luxury">
                                 [ ENTRA ]
                             </div>
@@ -120,7 +120,7 @@ const IntroSplash: React.FC<IntroSplashProps> = ({ onFinish }) => {
                         <div className="text-center space-y-4">
                             <h1 className="serif text-5xl md:text-8xl tracking-[-0.05em] font-light text-white">InsolitoDrive.</h1>
                             <div className="w-24 h-[0.5px] bg-[#C5A059]/20 mx-auto" />
-                            <p className="sans-ui text-[10px] text-[#C5A059]/60 tracking-[1.5em] uppercase mt-6">L'Arte di Scomparire</p>
+                            <p className="sans-ui text-[10px] text-[#C5A059]/60 tracking-[1.5em] uppercase mt-6">L’arte del silenzio</p>
                         </div>
                     </motion.div>
                 )}

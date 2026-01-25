@@ -28,7 +28,7 @@ export const ExecutiveDesk: React.FC<Props> = ({ mandates, onNewMandate }) => {
     if (confirm("INITIALIZE OBLIVION? This will atomize all local session data and connection logs.")) {
       setIsWiping(true);
       setTimeout(() => {
-        window.location.href = '/'; // Protocol: Return to shadow
+        window.location.href = '/'; // Return to silence
       }, 3000);
     }
   };
@@ -39,7 +39,7 @@ export const ExecutiveDesk: React.FC<Props> = ({ mandates, onNewMandate }) => {
         <div className="w-16 h-16 text-emerald-900">
           <Zap size={64} className="animate-bounce" />
         </div>
-        <p className="mono text-[10px] text-emerald-900 uppercase tracking-[1em]">Protocol OMEGA Active: Atomizing Data...</p>
+        <p className="mono text-[10px] text-emerald-900 uppercase tracking-[1em]">Silence Enforced: Atomizing Data...</p>
       </div>
     );
   }
@@ -83,7 +83,7 @@ export const ExecutiveDesk: React.FC<Props> = ({ mandates, onNewMandate }) => {
                 <span className="w-1 h-1 bg-[#C5A059] rounded-full shadow-[0_0_10px_rgba(197,160,89,0.3)] animate-pulse" />
                 <p className="sans-ui text-[9px] text-[#C5A059]/60">Node: Zurich_Fiduciary_Principal</p>
               </div>
-              <p className="sans-ui text-[9px] text-[#C5A059]/40 hidden md:block border-l border-[#C5A059]/10 pl-8">Protocol Art. 1705 C.C. Active</p>
+              <p className="sans-ui text-[9px] text-[#C5A059]/40 hidden md:block border-l border-[#C5A059]/10 pl-8">Mandate Art. 1705 C.C. Active</p>
             </div>
           </div>
 

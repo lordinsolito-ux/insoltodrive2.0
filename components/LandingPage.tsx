@@ -92,8 +92,8 @@ export const LandingPage: React.FC<Props> = ({ onInitialize }) => {
                       <div className="w-screen h-[0.5px] bg-[#C5A059]/20" />
                     </div>
                     <h2 className="serif text-7xl md:text-[180px] font-thin leading-[0.8] tracking-tighter max-w-5xl">
-                      L'arte di<br />
-                      <span className="italic opacity-30 pl-20 md:pl-40">essere invisibili.</span>
+                      L’arte del<br />
+                      <span className="italic opacity-30 pl-20 md:pl-40">silenzio.</span>
                     </h2>
                     <div className="max-w-xl md:pl-40 pt-10">
                       <p className="serif text-xl md:text-2xl text-[#FFFFFF]/40 font-light leading-relaxed">
@@ -107,7 +107,7 @@ export const LandingPage: React.FC<Props> = ({ onInitialize }) => {
 
                 <RevealOnScroll className="mt-32 flex justify-start md:pl-40" delay={0.6}>
                   <a href="#access" className="button-luxury">
-                    [ AVVIA PROTOCOLLO ]
+                    [ RICHIESTA ACCESSO ]
                   </a>
                 </RevealOnScroll>
               </section>
@@ -135,7 +135,7 @@ export const LandingPage: React.FC<Props> = ({ onInitialize }) => {
                     <RevealOnScroll className="space-y-12">
                       <img src={ARCH_IMG} alt="Minimal Architecture" className="w-full grayscale contrast-125 opacity-20 hover:opacity-50 transition-opacity duration-1000" />
                       <p className="serif italic text-base text-[#FFFFFF]/30 leading-relaxed max-w-xs">
-                        L'architettura dell'invisibilità richiede precisione millimetrica e un'assoluta lealtà al Principale.
+                        L'architettura del silenzio richiede precisione millimetrica e un'assoluta lealtà al Principale.
                       </p>
                     </RevealOnScroll>
                   </div>
@@ -235,7 +235,7 @@ export const LandingPage: React.FC<Props> = ({ onInitialize }) => {
                 <div className="max-w-4xl mx-auto w-full text-center space-y-24 relative z-10 px-6">
                   <RevealOnScroll className="space-y-12">
                     <div className="space-y-6">
-                      <h2 className="serif text-6xl md:text-9xl font-thin tracking-tighter">L’inizio della vostra invisibilità.</h2>
+                      <h2 className="serif text-6xl md:text-9xl font-thin tracking-tighter">L’inizio del silenzio.</h2>
                       <p className="sans-ui text-[11px] text-[#C5A059] tracking-[1.2em]">RICHIESTA DI ACCESSO AI SERVIZI FIDUCIARI</p>
                     </div>
                     <p className="serif italic text-xl md:text-2xl text-[#FFFFFF]/30 font-light max-w-2xl mx-auto leading-relaxed">

@@ -11,7 +11,7 @@ console.log(
 );
 
 console.log(
-  "%cProtocol 1705 C.C. // Absolute Fiduciary Shield",
+  "%cFiduciary Mandate 1705 C.C. // Absolute Shield",
   "color: #E8E2D6; font-size: 11px; font-weight: 300; letter-spacing: 0.15em; border-top: 1px solid #222; padding-top: 5px; text-transform: uppercase;"
 );
 
@@ -61,7 +61,7 @@ const App: React.FC = () => {
       stage: ProtocolStage.ESTABLISHMENT
     };
     setMandates([newMandate, ...mandates]);
-    notifyProtocolSigma("+39-FIDUCIARY", `Initiating Fiduciary Protocol: ${id}`);
+    notifyProtocolSigma("+39-FIDUCIARY", `Initiating Fiduciary Process: ${id}`);
   };
 
   return (
