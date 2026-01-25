@@ -149,8 +149,68 @@
             display: inline-block;
         }
 
-        .luxury-spacing {
-            padding: 160px 0;
+        /* Phase 11: Pillars of Excellence */
+        .service-block {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 60px 0;
+            cursor: crosshair;
+            transition: all 0.8s ease;
+        }
+
+        .service-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: var(--gold-satin);
+            letter-spacing: 0.5em;
+            opacity: 0.4;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .service-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.8);
+            transition: all 1s ease;
+        }
+
+        .service-block:hover .service-title {
+            color: var(--gold-satin);
+            font-style: italic;
+            transform: translateX(20px);
+        }
+
+        .service-description {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: all 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.4);
+            max-width: 400px;
+            margin-top: 10px;
+        }
+
+        .service-block:hover .service-description {
+            max-height: 200px;
+            opacity: 1;
+            margin-top: 20px;
+        }
+
+        .vertical-gold-line {
+            width: 1px;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, var(--gold-satin), transparent);
+            opacity: 0.3;
+        }
+
+        footer {
+            font-size: 10px !important;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
         }
     </style>
     <script type="importmap">

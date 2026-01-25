@@ -3,6 +3,11 @@ import React, { useEffect, useRef, useState } from 'react';
 import { SOLOMON_KNOT } from '../constants';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 
+// Asset Paths (Local)
+const ARCH_IMG = "/assets/arch.png";
+const WATCH_IMG = "/assets/watch.png";
+const SHIELD_IMG = "/assets/shield.png";
+
 interface Props {
   onInitialize: () => void;
 }
@@ -39,7 +44,7 @@ export const LandingPage: React.FC<Props> = ({ onInitialize }) => {
 
       <AnimatePresence mode="wait">
         {!ritualComplete ? (
-          /* THE RITUAL: PRE-LANDING INTRO (STILL ASYMMETRICAL) */
+          /* THE RITUAL: PRE-LANDING INTRO */
           <motion.section
             key="ritual"
             initial={{ opacity: 0 }}
@@ -81,7 +86,7 @@ export const LandingPage: React.FC<Props> = ({ onInitialize }) => {
             </motion.div>
           </motion.section>
         ) : (
-          /* THE REVELATION: FULL LANDING CONTENT (EDITORIAL LAYOUT) */
+          /* THE REVELATION: FULL LANDING CONTENT */
           <motion.div
             key="content"
             initial={{ opacity: 0 }}
@@ -89,15 +94,14 @@ export const LandingPage: React.FC<Props> = ({ onInitialize }) => {
             transition={{ duration: 2 }}
             className="relative"
           >
-            {/* Minimalist Aristocratic Navigation */}
+            {/* Navigation */}
             <nav className="fixed top-0 left-0 w-full z-50 px-10 py-12 flex justify-between items-center md:px-24">
               <div className="w-8 h-8 text-[#C5A059]/20">{SOLOMON_KNOT}</div>
               <div className="flex space-x-12 opacity-80">
-                <a href="#" className="sans-ui">Philosophy</a>
-                <a href="#" className="sans-ui">Protocols</a>
-                <a href="#" className="sans-ui">Legal</a>
+                <a href="#" className="sans-ui text-[10px]">Philosophy</a>
+                <a href="#" className="sans-ui text-[10px]">Pillars</a>
+                <a href="#" className="sans-ui text-[10px]">Desk</a>
               </div>
-              <div className="sans-ui text-[10px] opacity-40 hidden md:block">Michael Sergio Jara Lloctun</div>
             </nav>
 
             <div className="relative z-10 w-full max-w-screen-2xl mx-auto px-10 md:px-24">
@@ -107,15 +111,13 @@ export const LandingPage: React.FC<Props> = ({ onInitialize }) => {
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
                   <RevealOnScroll className="md:col-span-9 space-y-12">
                     <span className="sans-ui text-[10px] text-[#C5A059]/60 border-l border-[#C5A059]/20 pl-4">Fiduciary Proxy Principal</span>
-                    <h2 className="serif text-6xl md:text-[140px] font-thin leading-[0.85] tracking-tighter">
+                    <h2 className="serif text-5xl md:text-[140px] font-thin leading-[0.85] tracking-tighter">
                       Invisibilità come <br />
                       <span className="italic opacity-80 pl-20 md:pl-60">architettura.</span>
                     </h2>
                   </RevealOnScroll>
                   <RevealOnScroll className="md:col-start-10 md:col-span-3 flex flex-col justify-end h-full pb-40">
-                    <p className="serif italic text-xl text-[#FFFFFF]/30 mb-12 leading-relaxed">
-                      Un sistema di interposizione legale dedicato all'eccellenza.
-                    </p>
+                    <img src={WATCH_IMG} alt="Luxury Detail" className="w-full grayscale opacity-40 mb-12 hover:grayscale-0 transition-all duration-1000" />
                     <button onClick={onInitialize} className="button-luxury w-full text-center">
                       Inizia Protocollo
                     </button>
@@ -123,44 +125,59 @@ export const LandingPage: React.FC<Props> = ({ onInitialize }) => {
                 </div>
               </section>
 
-              {/* Section 2: The Philosophy (Meaningful Void) */}
-              <section className="luxury-spacing relative">
-                <div className="absolute top-0 left-0 w-full h-[0.5px] bg-gradient-to-r from-transparent via-[#FFFFFF]/5 to-transparent" />
-                <RevealOnScroll className="max-w-5xl mx-auto py-20 text-center space-y-24">
-                  <p className="serif italic text-3xl md:text-6xl text-[#C5A059]/90 font-light leading-snug">
-                    "La trasparenza è l'illusione della sicurezza. La vera libertà d'acquisto nasce dal silenzio assoluto dell'interposizione."
-                  </p>
-                  <p className="serif text-xl md:text-2xl text-[#FFFFFF]/30 font-light max-w-2xl mx-auto leading-relaxed">
-                    InsolitoDrive è l'architettura fiduciaria dove ogni transazione è un atto di ingegneria legale dedicato all'élite.
-                  </p>
-                </RevealOnScroll>
-                <div className="absolute bottom-0 left-0 w-full h-[0.5px] bg-gradient-to-r from-transparent via-[#FFFFFF]/5 to-transparent" />
+              {/* Section: Fiduciary Interposition (The Shield Concept) */}
+              <section className="py-64 relative">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-20 items-start">
+                  <div className="md:col-span-5 space-y-16 relative">
+                    {/* Vertical Gold Line */}
+                    <div className="absolute -left-10 top-0 bottom-0 w-[0.5px] bg-[#C5A059]/40" />
+
+                    <RevealOnScroll className="space-y-10">
+                      <span className="sans-ui text-[10px] text-[#C5A059] tracking-[0.8em]">The Shield Concept</span>
+                      <p className="serif text-3xl md:text-5xl text-[#FFFFFF]/90 font-light leading-[1.3] text-justify md:text-left">
+                        "L'Interposizione Fiduciaria non è uno strumento, è uno scudo. Agiamo nell'ombra per proteggere la luce dei vostri interessi. In un mondo che esige trasparenza totale, noi garantiamo l'unico vero privilegio rimasto: l'invisibilità strategica."
+                      </p>
+                    </RevealOnScroll>
+                  </div>
+                  <div className="md:col-start-7 md:col-span-5 flex flex-col justify-center pt-24 md:pt-0">
+                    <img src={ARCH_IMG} alt="Minimalist Luxury" className="w-full opacity-30 grayscale hover:opacity-100 transition-all duration-2000" />
+                  </div>
+                </div>
               </section>
 
-              {/* Section 3: Protocols (Vertical Editorial List) */}
-              <section className="luxury-spacing">
-                <RevealOnScroll className="grid grid-cols-1 md:grid-cols-12 gap-10">
-                  <div className="md:col-span-4 space-y-6">
-                    <h2 className="serif text-4xl md:text-8xl font-thin tracking-tighter">Protocolli</h2>
-                    <p className="sans-ui text-[10px] text-[#C5A059]/40 tracking-[0.4em] pt-6">1705 C.C. Compliance</p>
-                  </div>
+              {/* Section: Pillars of Excellence */}
+              <section className="py-64">
+                <RevealOnScroll className="max-w-6xl">
+                  <h2 className="serif text-4xl md:text-8xl font-thin tracking-tighter mb-24">I Pilastri</h2>
 
-                  <div className="md:col-start-6 md:col-span-7 flex flex-col border-t border-[#FFFFFF]/10 mt-20 md:mt-0">
+                  <div className="flex flex-col border-t border-[#FFFFFF]/5">
                     {[
-                      { id: '01', title: 'The Mandate', desc: 'Formalizziamo l\'incarico fiduciario per blindare l\'identità del Beneficial Owner.' },
-                      { id: '02', title: 'The Execution', desc: 'Gestiamo acquisizioni di asset rari in tutto il mondo tramite il nostro Executive Desk.' },
-                      { id: '03', title: 'The Oblivion', desc: 'Protocollo OMEGA: distruzione certificata di ogni record digitale entro 48 ore.' }
+                      {
+                        id: '01',
+                        title: 'Strategic Anonymity',
+                        subtitle: 'Gestione dell\'identità e protezione dei flussi informativi.',
+                        desc: 'Il diritto di operare globalmente senza lasciare impronte. Architettiamo strutture di interposizione che rendono la vostra presenza un\'opzione, mai una necessità.'
+                      },
+                      {
+                        id: '02',
+                        title: 'Asset Safeguard',
+                        subtitle: 'Strutture fiduciarie per la detenzione di beni di alto valore.',
+                        desc: 'Protezione assoluta per patrimoni tangibili e intangibili. Ogni asset viene blindato sotto uno scudo di interposizione reale che ne occulta il Beneficial Owner.'
+                      },
+                      {
+                        id: '03',
+                        title: 'Invisible Negotiation',
+                        subtitle: 'Rappresentanza in contesti d\'acquisizione dove il vostro nome è l\'unico dato sensibile.',
+                        desc: 'Operiamo come proxy nelle trattative più delicate. Il vostro intento rimane intatto, la vostra identità rimane inaccessibile.'
+                      }
                     ].map(item => (
-                      <div key={item.id} className="group border-b border-[#FFFFFF]/10 py-16 cursor-crosshair">
-                        <div className="flex justify-between items-start">
+                      <div key={item.id} className="service-block group">
+                        <div className="flex flex-col md:flex-row md:items-end justify-between">
                           <div className="space-y-4">
-                            <span className="mono text-[9px] text-[#C5A059]/40 tracking-[0.8em]">{item.id}</span>
-                            <h3 className="serif text-4xl md:text-7xl text-[#FFFFFF]/80 group-hover:text-[#C5A059] group-hover:italic transition-all duration-1000 transform group-hover:translate-x-12">
-                              {item.title}
-                            </h3>
-                          </div>
-                          <div className="max-w-xs opacity-0 group-hover:opacity-100 transition-all duration-1000 hidden lg:block text-right pt-20">
-                            <p className="serif text-lg italic text-[#FFFFFF]/40 font-light leading-relaxed">
+                            <span className="service-number">{item.id}</span>
+                            <h3 className="service-title">{item.title}</h3>
+                            <p className="sans-ui text-[10px] text-[#FFFFFF]/30 tracking-widest">{item.subtitle}</p>
+                            <p className="service-description">
                               {item.desc}
                             </p>
                           </div>
@@ -171,11 +188,11 @@ export const LandingPage: React.FC<Props> = ({ onInitialize }) => {
                 </RevealOnScroll>
               </section>
 
-              {/* Section 4: Legal Superiority (Asymmetrical Block) */}
-              <section className="luxury-spacing relative overflow-hidden">
+              {/* Section: Legal Superiority (Asymmetrical Block) */}
+              <section className="py-32 relative overflow-hidden">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-32 items-center bg-[#121212]/50 p-10 md:p-32 border border-[#FFFFFF]/5">
                   <RevealOnScroll className="lg:col-span-7 space-y-12">
-                    <span className="sans-ui text-[10px] text-[#C5A059] tracking-[1em] opacity-60">Superiorità Legale Europea</span>
+                    <span className="sans-ui text-[10px] text-[#C5A059] tracking-[1em] opacity-60">Superiorità Legale Europa</span>
                     <h2 className="serif text-5xl md:text-9xl font-thin leading-none tracking-tighter">Vantaggio <br />Fiduciario.</h2>
                     <p className="serif text-2xl text-[#FFFFFF]/40 leading-relaxed font-light max-w-xl">
                       La blindatura offered dall'ordinamento italiano (Art. 1705 C.C.) garantisce un'interposizione reale impenetrabile.
@@ -197,36 +214,30 @@ export const LandingPage: React.FC<Props> = ({ onInitialize }) => {
               </section>
             </div>
 
-            {/* Final Call to Action (Centered Absolute Minimalism) */}
-            <section className="luxury-spacing flex flex-col items-center justify-center text-center space-y-24 min-h-[90vh]">
-              <RevealOnScroll className="space-y-20">
-                <h2 className="serif text-6xl md:text-[160px] font-thin tracking-tighter text-[#FFFFFF] leading-none mb-10 translate-y-[-20px]">Private Access</h2>
-                <div className="w-32 h-[1px] bg-[#C5A059]/20 mx-auto" />
-                <p className="serif italic text-2xl md:text-4xl text-[#FFFFFF]/20 max-w-4xl mx-auto leading-relaxed px-10">
+            {/* Final Call to Action */}
+            <section className="py-64 flex flex-col items-center justify-center text-center space-y-24 min-h-[100vh]">
+              <RevealOnScroll className="space-y-20 relative px-10">
+                <img src={SHIELD_IMG} alt="Security Seal" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] opacity-[0.03] pointer-events-none" />
+                <h2 className="serif text-6xl md:text-[180px] font-thin tracking-tighter text-[#FFFFFF] leading-none mb-10">Private Access</h2>
+                <p className="serif italic text-2xl md:text-4xl text-[#FFFFFF]/20 max-w-4xl mx-auto leading-relaxed">
                   "L'accesso al nostro network è riservato agli eletti del patrimonio. Ogni collaborazione inizia con una valutazione di integrità."
                 </p>
-                <div className="pt-24">
-                  <button
-                    onClick={onInitialize}
-                    className="button-luxury px-32"
-                  >
-                    Richiedi Credenziali
+                <div className="pt-24 scale-125">
+                  <button onClick={onInitialize} className="button-luxury px-32">
+                    Accesso Desk
                   </button>
                 </div>
               </RevealOnScroll>
             </section>
 
             {/* Footer: The Absolute Silence Signature */}
-            <footer className="px-10 md:px-24 py-32 grid grid-cols-1 md:grid-cols-3 items-center opacity-40 border-t border-[#FFFFFF]/5 bg-[#080808]/80">
-              <div className="sans-ui text-[9px] tracking-[0.8em] text-[#C5A059] mb-10 md:mb-0">
-                Principal Michael Sergio Jara Lloctun
-              </div>
-              <div className="flex justify-center space-x-12 text-[#C5A059]/30">
+            <footer className="footer-whisper px-10 md:px-24 py-32 flex flex-col md:flex-row justify-between items-center opacity-30 border-t border-[#FFFFFF]/5">
+              <div className="sans-ui">Principal Michael Sergio Jara Lloctun</div>
+              <div className="flex space-x-12 text-[#C5A059]/20 my-10 md:my-0">
                 {SOLOMON_KNOT}
               </div>
-              <div className="mono text-[8px] flex justify-end space-x-12 uppercase tracking-[0.4em] text-[#FFFFFF]/40 mt-10 md:mt-0">
-                <span>Shield_ID: 0xD99A</span>
-                <span>© 2026</span>
+              <div className="mono opacity-60">
+                <span>Shield_ID: 0xD99A • © 2026</span>
               </div>
             </footer>
           </motion.div>
