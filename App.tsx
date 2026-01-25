@@ -7,12 +7,12 @@ import { notifyProtocolSigma } from './services/communicationService';
 
 console.log(
   "%cINSOLITO DRIVE - IMPERIAL SELECTION 2.0",
-  "color: #F5F5F5; font-size: 20px; font-weight: light; letter-spacing: 0.3em; text-transform: uppercase;"
+  "color: #8B7355; font-size: 24px; font-weight: bold; letter-spacing: 0.2em; text-shadow: 2px 2px #000; padding: 10px 0;"
 );
 
 console.log(
-  "%cProtocol 1705 C.C. Active // Data Oblivion Scheduled",
-  "color: #666; font-size: 10px; font-weight: bold; letter-spacing: 0.1em;"
+  "%cProtocol 1705 C.C. // Absolute Identity Shielding",
+  "color: #F5F5F5; font-size: 11px; font-weight: 300; letter-spacing: 0.15em; border-top: 1px solid #222; padding-top: 5px; text-transform: uppercase;"
 );
 
 const App: React.FC = () => {
