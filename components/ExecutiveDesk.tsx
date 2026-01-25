@@ -77,7 +77,7 @@ export const ExecutiveDesk: React.FC<Props> = ({ mandates, onNewMandate }) => {
 
         <header className="flex flex-col lg:row justify-between items-start lg:items-end mb-24 border-b border-[#C5A059]/10 pb-16 space-y-10 lg:space-y-0 relative z-10">
           <div className="space-y-6">
-            <h1 className="serif text-5xl md:text-6xl font-light tracking-tight text-[#FFFFFF]/90 uppercase">Executive Desk</h1>
+            <h1 className="serif text-5xl md:text-7xl font-thin tracking-tighter text-[#FFFFFF]/95">Ufficio di Presidenza.</h1>
             <div className="flex flex-wrap items-center gap-8">
               <div className="flex items-center space-x-3">
                 <span className="w-1 h-1 bg-[#C5A059] rounded-full shadow-[0_0_10px_rgba(197,160,89,0.3)] animate-pulse" />

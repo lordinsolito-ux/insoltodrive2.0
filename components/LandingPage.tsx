@@ -13,7 +13,7 @@ interface Props {
   onInitialize: () => void;
 }
 
-const RevealOnScroll: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className }) => {
+const RevealOnScroll: React.FC<{ children: React.ReactNode; className?: string; delay?: number }> = ({ children, className, delay = 0 }) => {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -30,7 +30,11 @@ const RevealOnScroll: React.FC<{ children: React.ReactNode; className?: string }
   }, []);
 
   return (
-    <div ref={ref} className={`reveal-on-scroll ${className}`}>
+    <div
+      ref={ref}
+      className={`reveal-on-scroll ${className}`}
+      style={{ transitionDelay: `${delay}s` }}
+    >
       {children}
     </div>
   );
@@ -112,6 +116,7 @@ export const LandingPage: React.FC<Props> = ({ onInitialize }) => {
               <div className="flex space-x-12 opacity-80">
                 <a href="#essence" className="sans-ui text-[10px]">L'Essenza</a>
                 <a href="#founder" className="sans-ui text-[10px]">Il Fondatore</a>
+                <a href="#expertise" className="sans-ui text-[10px]">Competenze</a>
                 <a href="#access" className="sans-ui text-[10px] text-[#C5A059]">Accesso Privato</a>
               </div>
             </nav>
@@ -218,6 +223,47 @@ export const LandingPage: React.FC<Props> = ({ onInitialize }) => {
                       </div>
                     </RevealOnScroll>
                   </div>
+                </div>
+              </section>
+
+              {/* Section: Domini di Competenza (Strategic Expertise) */}
+              <section id="expertise" className="py-64 relative min-h-screen flex flex-col justify-center">
+                <div className="max-w-6xl mx-auto w-full">
+                  <RevealOnScroll className="mb-40 text-center">
+                    <h2 className="serif text-4xl md:text-8xl font-thin tracking-tighter">Domini di Competenza.</h2>
+                    <p className="sans-ui text-[11px] text-[#C5A059] tracking-[1.2em] mt-8">ALTA CHIRURGIA STRATEGICA</p>
+                  </RevealOnScroll>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    {[
+                      { id: 'I', title: 'Identità Architetturale', body: 'Costruzione di figure pubbliche o private con profondità strategica e protezione dell\'essenza reale.' },
+                      { id: 'II', title: 'Interposizione Fiduciaria', body: 'Schermatura completa di interessi patrimoniali e transazioni attraverso protocolli di discrezione assoluta.' },
+                      { id: 'III', title: 'Diplomazia del Silenzio', body: 'Gestione di crisi reputazionali e negoziazioni ad alto rischio dove l\'assenza di rumore è il primo requisito.' },
+                      { id: 'IV', title: 'Ingegneria Navale & Yachting', body: 'Supporto tecnico e burocratico per l\'acquisizione e la gestione di asset marittimi di prestigio mondiale.' },
+                      { id: 'V', title: 'Strategic Intelligence', body: 'Analisi predittiva e intelligence privata per la tutela dell\'integrità fisica e digitale del Principal.' },
+                      { id: 'VI', title: 'Crisis Shielding', body: 'Protocolli di emergenza per la neutralizzazione immediata di minacce reputazionali e operative.' }
+                    ].map((item, index) => (
+                      <RevealOnScroll
+                        key={item.id}
+                        delay={index * 0.15}
+                        className="expertise-card"
+                      >
+                        <div className="roman-number">{item.id}</div>
+                        <div className="space-y-6 relative z-10">
+                          <h3 className="serif text-2xl md:text-3xl font-light text-[#FFFFFF]/90 leading-tight">{item.title}</h3>
+                          <p className="serif text-base text-[#FFFFFF]/40 font-light leading-relaxed">
+                            {item.body}
+                          </p>
+                        </div>
+                      </RevealOnScroll>
+                    ))}
+                  </div>
+
+                  <RevealOnScroll className="mt-40 text-center" delay={0.8}>
+                    <p className="serif italic text-xl md:text-2xl text-[#FFFFFF]/30 font-light max-w-2xl mx-auto border-t border-[#FFFFFF]/5 pt-12">
+                      "La discrezione non è un limite all'azione, ma un moltiplicatore di potere."
+                    </p>
+                  </RevealOnScroll>
                 </div>
               </section>
 

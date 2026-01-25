@@ -241,6 +241,40 @@
         .focus-mode-active {
             background-color: #060606 !important;
         }
+
+        /* Phase 15: Strategic Expertise (Domini di Competenza) */
+        .expertise-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 0.5px solid rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .expertise-card:hover {
+            background: rgba(197, 160, 89, 0.05);
+            border-color: rgba(197, 160, 89, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .roman-number {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 5rem;
+            font-weight: 300;
+            color: var(--gold-satin);
+            opacity: 0.08;
+            line-height: 1;
+            pointer-events: none;
+            transition: opacity 1s ease;
+        }
+
+        .expertise-card:hover .roman-number {
+            opacity: 0.15;
+        }
     </style>
     <script type="importmap">
 {

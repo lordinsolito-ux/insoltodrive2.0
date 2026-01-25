@@ -65,7 +65,7 @@ export const MandateCard: React.FC<Props> = ({ mandate }) => {
               <div className="h-[0.5px] w-8 bg-[#C5A059]/10" />
               <span className="sans-ui text-[8px] text-[#C5A059]/30 tracking-widest">{new Date(mandate.created_at).toLocaleDateString()}</span>
             </div>
-            <h2 className="serif text-4xl text-[#FFFFFF]/90 font-light tracking-wide group-hover:text-[#FFFFFF] transition-colors duration-700 uppercase">{mandate.asset_subject}</h2>
+            <h2 className="serif text-4xl md:text-5xl text-[#FFFFFF]/90 font-thin tracking-tighter group-hover:text-[#FFFFFF] transition-colors duration-1000 normal-case">{mandate.asset_subject}</h2>
           </div>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-12">
