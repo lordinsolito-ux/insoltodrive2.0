@@ -123,105 +123,101 @@ export const LandingPage: React.FC<Props> = ({ onInitialize }) => {
 
             <div className="relative z-10 w-full max-w-screen-2xl mx-auto px-10 md:px-24">
 
-              {/* Hero Section */}
-              <section className="h-screen flex flex-col justify-center">
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
-                  <RevealOnScroll className="md:col-span-9 space-y-12">
-                    <span className="sans-ui text-[10px] text-[#C5A059]/60 border-l border-[#C5A059]/20 pl-4">Fiduciary Proxy Principal</span>
-                    <h2 className="serif text-6xl md:text-[140px] font-thin leading-[0.85] tracking-tighter">
-                      Invisibilità come <br />
-                      <span className="italic opacity-80 pl-20 md:pl-60">architettura.</span>
+              {/* Hero Section: Asymmetric & Authority-Driven */}
+              <section className="min-h-screen flex flex-col justify-center py-80">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-0 relative">
+                  <RevealOnScroll className="md:col-span-12 space-y-16">
+                    <div className="flex items-center space-x-10 mb-8 overflow-hidden">
+                      <span className="sans-ui text-[9px] text-[#C5A059] tracking-[1em] whitespace-nowrap">PRIVATO • ASSOLUTO • FIDUCIARIO</span>
+                      <div className="w-screen h-[0.5px] bg-[#C5A059]/20" />
+                    </div>
+                    <h2 className="serif text-7xl md:text-[180px] font-thin leading-[0.8] tracking-tighter max-w-5xl">
+                      L'arte di<br />
+                      <span className="italic opacity-30 pl-20 md:pl-40">essere invisibili.</span>
                     </h2>
-                  </RevealOnScroll>
-                  <RevealOnScroll className="md:col-start-10 md:col-span-3 flex flex-col justify-end h-full pb-40">
-                    <img src={WATCH_IMG} alt="Luxury Detail" className="w-full grayscale opacity-40 mb-12 hover:grayscale-0 transition-all duration-1000" />
-                    <a href="#access" className="button-luxury w-full text-center block">
-                      Richiedi Protocollo
-                    </a>
-                  </RevealOnScroll>
-                </div>
-              </section>
-
-              {/* Section: L'Essenza (About) */}
-              <section id="essence" className="py-64 relative min-h-screen flex flex-col justify-center">
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-20 items-center">
-                  <div className="md:col-start-2 md:col-span-6 space-y-16">
-                    <RevealOnScroll className="space-y-12">
-                      <h2 className="serif text-4xl md:text-8xl font-thin tracking-tighter leading-none">Architetti del Silenzio.<br />Custodi del Vostro Nome.</h2>
-                      <p className="serif text-xl md:text-2xl text-[#F4F4F2]/80 leading-relaxed font-light indent-12 max-w-xl">
-                        "Non siamo una struttura di consulenza ordinaria. Siamo il filtro tra la vostra ambizione e lo sguardo del mondo. Fondata sul principio dell’interposizione fiduciaria assoluta, la nostra boutique opera dove il prestigio incontra la necessità di una riservatezza senza compromessi."
-                      </p>
-                      <p className="serif text-lg md:text-xl text-[#F4F4F2]/40 leading-relaxed font-light max-w-xl">
-                        Non gestiamo semplicemente asset; proteggiamo la libertà di possederli senza l'onere di doverli mostrare. La nostra missione è rendere invisibile la complessità, lasciando a voi solo il controllo totale, dietro le quinte.
-                      </p>
-                    </RevealOnScroll>
-                  </div>
-
-                  <div className="md:col-start-9 md:col-span-3 space-y-16 pt-24 md:pt-0">
-                    <RevealOnScroll className="grid grid-cols-1 gap-12 border-l border-[#C5A059]/20 pl-8">
-                      {[
-                        { title: 'Discrezione Radicale', body: 'Ciò che accade all\'interno, non esiste all\'esterno.' },
-                        { title: 'Assenza di Impronta', body: 'Ogni nostra azione è studiata per non lasciare tracce digitali o documentali superflue.' },
-                        { title: 'Lealtà Fiduciaria', body: 'Il vostro interesse è l\'unico parametro della nostra esistenza.' }
-                      ].map(v => (
-                        <div key={v.title} className="space-y-2">
-                          <p className="sans-ui text-[9px] text-[#C5A059] tracking-widest">{v.title}</p>
-                          <p className="serif italic text-sm text-[#FFFFFF]/40 font-light">{v.body}</p>
-                        </div>
-                      ))}
-                    </RevealOnScroll>
-                    <div className="pt-10">
-                      <p className="serif italic text-[11px] text-[#FFFFFF]/20 max-w-[200px]">
-                        "Il vero potere non ha bisogno di farsi sentire, ma di essere presente ovunque."
+                    <div className="max-w-xl md:pl-40 pt-10">
+                      <p className="serif text-xl md:text-2xl text-[#FFFFFF]/40 font-light leading-relaxed">
+                        Progettiamo silenzi strategici per chi non ha più bisogno di gridare la propria presenza.
                       </p>
                     </div>
+                  </RevealOnScroll>
+
+                  {/* Absolute Asymmetry: The empty right-side is intentional whitespace */}
+                </div>
+
+                <RevealOnScroll className="mt-32 flex justify-start md:pl-40" delay={0.6}>
+                  <a href="#access" className="button-luxury">
+                    [ AVVIA PROTOCOLLO ]
+                  </a>
+                </RevealOnScroll>
+              </section>
+
+              {/* Section: L'Essenza (Editorial Layout) */}
+              <section id="essence" className="py-80 relative min-h-screen flex flex-col justify-center">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-32 items-start">
+                  <div className="md:col-start-1 md:col-span-7 space-y-24">
+                    <RevealOnScroll className="space-y-16">
+                      <div className="space-y-6">
+                        <span className="sans-ui text-[9px] text-[#C5A059]/40 tracking-[1em]">MANIFESTO</span>
+                        <h2 className="serif text-5xl md:text-9xl font-thin tracking-tighter leading-none">Custodi del<br />Silenzio.</h2>
+                      </div>
+                      <div className="bg-[#FFFFFF]/5 w-24 h-[1px]" />
+                      <p className="serif text-2xl md:text-4xl text-[#F4F4F2] leading-[1.2] font-light max-w-2xl">
+                        "Siamo il filtro tra la vostra ambizione e lo sguardo del mondo."
+                      </p>
+                      <p className="serif text-lg md:text-xl text-[#F4F4F2]/40 leading-relaxed font-light max-w-xl indent-16">
+                        In un'era di sovraesposizione, l'unico vero atto di potere è decidere chi può vedervi. Gestiamo l'interposizione fiduciaria non come un servizio tecnico, ma come un'opera d'arte negoziale.
+                      </p>
+                    </RevealOnScroll>
+                  </div>
+
+                  <div className="md:col-start-9 md:col-span-4 self-end pb-20">
+                    <RevealOnScroll className="space-y-12">
+                      <img src={ARCH_IMG} alt="Minimal Architecture" className="w-full grayscale contrast-125 opacity-20 hover:opacity-50 transition-opacity duration-1000" />
+                      <p className="serif italic text-base text-[#FFFFFF]/30 leading-relaxed max-w-xs">
+                        L'architettura dell'invisibilità richiede precisione millimetrica e un'assoluta lealtà al Principale.
+                      </p>
+                    </RevealOnScroll>
                   </div>
                 </div>
               </section>
 
-              {/* Section: Il Fondatore (Michael Jara) */}
-              <section id="founder" ref={founderRef} className="py-64 relative">
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-32 items-center">
-                  <div className="md:col-start-2 md:col-span-5 order-2 md:order-1">
-                    <RevealOnScroll className="space-y-12">
-                      <div className="space-y-4">
-                        <span className="sans-ui text-[10px] text-[#C5A059]/60">The Visionary Principal</span>
-                        <h2 className="serif text-5xl md:text-[90px] font-thin tracking-tighter leading-none">Michael Jara.<br /><span className="italic pl-12 md:pl-24">La visione dietro l'invisibilità.</span></h2>
+              {/* Section: Il Fondatore (Michael Jara) - High Authority Visuals */}
+              <section id="founder" ref={founderRef} className="py-80 relative overflow-hidden">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-20 items-center">
+                  <div className="md:col-start-1 md:col-span-6 z-10">
+                    <RevealOnScroll className="space-y-16">
+                      <div className="space-y-6">
+                        <span className="sans-ui text-[9px] text-[#C5A059]/40 tracking-[1em]">IL FONDATORE</span>
+                        <h2 className="serif text-6xl md:text-[140px] font-thin tracking-tighter leading-[0.8]">Michael<br />Jara.</h2>
                       </div>
 
-                      <div className="space-y-8 max-w-lg">
-                        <p className="serif text-xl text-[#FFFFFF]/70 leading-relaxed font-light first-letter:text-4xl first-letter:font-thin first-letter:text-[#C5A059] first-letter:mr-3 first-letter:float-left">
-                          Architetto di strategie d'immagine e pioniere del personal branding d'avanguardia, Michael Jara ha ridefinito il concetto di presenza nell'era digitale. Fondatore di InsolitoDrive, la sua missione nasce da una convinzione profonda: il vero asset competitivo di un individuo non è ciò che mostra, ma ciò che sceglie di proteggere.
+                      <div className="space-y-10 max-w-lg md:pl-20 border-l border-[#FFFFFF]/5">
+                        <p className="serif text-xl text-[#FFFFFF]/60 leading-relaxed font-light">
+                          "Il vero asset competitivo non è ciò che mostri, ma ciò che scegli di proteggere."
                         </p>
-                        <p className="serif text-lg text-[#FFFFFF]/40 leading-relaxed font-light">
-                          Con un'esperienza consolidata nel trasformare l'immagine in uno strumento strategico, Jara guida oggi un team dedicato alla salvaguardia dell'identità e alla gestione fiduciaria, offrendo ai suoi clienti l'unico lusso oggi realmente introvabile: il controllo assoluto della propria traccia nel mondo.
+                        <p className="serif text-base text-[#FFFFFF]/30 leading-relaxed font-light">
+                          Michael Jara ha ridefinito la gestione dell'identità per Principal di alto profilo. Fondatore di InsolitoDrive, opera come architetto di strategie d'ombra, garantendo che il prestigio resti intatto, proteggendo il Principal dall'entropia dell'attenzione pubblica.
                         </p>
-                      </div>
-
-                      <div className="pt-12 border-t border-[#FFFFFF]/5">
-                        <p className="serif italic text-2xl text-[#C5A059]/90 font-light">
-                          "L'immagine più potente è quella che non ha bisogno di gridare per essere riconosciuta."
-                        </p>
-                        <div className="flex items-center space-x-6 mt-6">
-                          <div className="w-8 h-[0.5px] bg-[#C5A059]/40" />
-                          <span className="sans-ui text-[9px] tracking-[0.5em] text-[#FFFFFF]/30">M.J. Private Fiduciary Protocol</span>
-                        </div>
                       </div>
                     </RevealOnScroll>
                   </div>
 
-                  <div className="md:col-start-8 md:col-span-4 order-1 md:order-2 flex justify-center pb-20 md:pb-0">
+                  <div className="md:col-start-7 md:col-span-6 relative mt-40 md:mt-0">
                     <RevealOnScroll>
-                      <div className="relative group">
-                        <div className="absolute inset-0 bg-[#C5A059]/5 blur-[80px] group-hover:bg-[#C5A059]/10 transition-all duration-2000" />
+                      <div className="relative aspect-[4/5] overflow-hidden">
                         <img
                           src={FOUNDER_IMG}
-                          alt="Michael Jara"
-                          className="relative w-full grayscale contrast-125 hover:grayscale-0 transition-all duration-[3000ms] ease-in-out border border-[#FFFFFF]/5 shadow-2xl"
+                          alt="Michael Jara - Vision"
+                          className="w-full h-full object-cover grayscale contrast-150 brightness-50 hover:brightness-75 transition-all duration-[3000ms] scale-110 hover:scale-100"
                         />
-                        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-[#060606] to-transparent pointer-events-none" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-[#060606] via-transparent to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#060606] via-transparent to-transparent" />
                       </div>
                     </RevealOnScroll>
+                    <div className="absolute -bottom-10 -left-10 md:hidden block">
+                      <p className="sans-ui text-[8px] text-[#C5A059] vertical-text tracking-[1em]">M. JARA</p>
+                    </div>
                   </div>
                 </div>
               </section>

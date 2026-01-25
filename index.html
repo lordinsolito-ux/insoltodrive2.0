@@ -129,24 +129,63 @@
         .hero-title {
             font-family: 'Cormorant Garamond', serif;
             font-weight: 300;
-            font-style: italic;
             color: var(--white);
-            line-height: 1.2;
-            margin-bottom: 40px;
-            opacity: 0.9;
-            letter-spacing: -1px;
+            line-height: 1.1;
+            margin-bottom: 60px;
+            opacity: 0.95;
+            letter-spacing: -3px;
             text-transform: none;
         }
 
         .hero-subtitle {
             font-family: 'Inter', sans-serif;
-            font-size: 12px;
+            font-size: 11px;
             text-transform: uppercase;
-            letter-spacing: 4px;
+            letter-spacing: 5px;
             color: rgba(255, 255, 255, 0.4);
             border-top: 0.5px solid rgba(255, 255, 255, 0.1);
-            padding-top: 25px;
+            padding-top: 30px;
             display: inline-block;
+            font-weight: 300;
+        }
+
+        /* Aristocratic Button (Ghost Version) */
+        .button-luxury {
+            background: none;
+            border: 0.5px solid rgba(255, 255, 255, 0.2);
+            border-radius: 0 !important;
+            padding: 20px 50px;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-size: 9px;
+            font-weight: 400;
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .button-luxury:hover {
+            border-color: var(--white);
+            background: rgba(255, 255, 255, 0.05);
+            letter-spacing: 7px;
+        }
+
+        .button-luxury::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--white);
+            transition: width 0.8s ease;
+        }
+
+        .button-luxury:hover::after {
+            width: 100%;
         }
 
         /* Phase 11: Pillars of Excellence */
