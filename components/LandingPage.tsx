@@ -114,7 +114,7 @@ export const LandingPage: React.FC<Props> = ({ onInitialize }) => {
                     <div className="max-w-xl md:pl-32 pt-10 border-l border-[#C5A059]/10 pl-10">
                       <p className="serif text-xl md:text-2xl text-[#FFFFFF]/50 font-light leading-relaxed">
                         <GhostReveal mode="lines" speed="medium" delay={3}>
-                          Un privilegio riservato a chi ha scelto di esistere senza il bisogno di apparire.
+                          UN PRIVILEGIO RISERVATO A CHI HA IMPARATO A ESISTERE SENZA APPARIRE.
                         </GhostReveal>
                       </p>
                     </div>
@@ -139,12 +139,12 @@ export const LandingPage: React.FC<Props> = ({ onInitialize }) => {
                     <div className="space-y-12">
                       <p className="serif text-2xl md:text-3xl text-[#F4F4F2]/90 leading-relaxed font-light max-w-xl">
                         <GhostReveal speed="medium">
-                          "InsolitoDrive opera nell'interposizione fiduciaria per garantire una presenza discreta in un mondo che non smette di osservare."
+                          "In un’era di trasparenza forzata, la discrezione è l'unica vera forma di libertà."
                         </GhostReveal>
                       </p>
                       <p className="serif text-lg md:text-xl text-[#F4F4F2]/40 leading-relaxed font-light max-w-xl border-l border-[#FFFFFF]/10 pl-6">
                         <GhostReveal speed="fast" delay={0.5}>
-                          Creiamo lo spazio necessario affinché i vostri interessi personali e professionali rimangano protetti da un velo di assoluta distinzione.
+                          InsolitoDrive nasce per restituirvi il controllo della vostra traccia, trasformando la riservatezza in un asset strategico.
                         </GhostReveal>
                       </p>
                     </div>
@@ -175,12 +175,12 @@ export const LandingPage: React.FC<Props> = ({ onInitialize }) => {
                       <div className="space-y-10 max-w-lg border-l border-[#FFFFFF]/5 pl-10">
                         <p className="serif text-xl text-[#FFFFFF]/70 leading-relaxed font-light">
                           <GhostReveal>
-                            "Michael Jara coordina ogni mandato con la sensibilità di chi comprende il valore inestimabile della propria traccia."
+                            "Curatore di equilibri fiduciari."
                           </GhostReveal>
                         </p>
                         <p className="serif text-base text-[#FFFFFF]/30 leading-relaxed font-light">
                           <GhostReveal delay={0.4}>
-                            Fondata sui principi della fiducia e della lealtà assoluta, la visione di Michael Jara trasforma la necessità di discrezione in un'architettura di vita impeccabile.
+                            La mia missione è agire come il filtro necessario tra la vostra ambizione e lo sguardo del mondo, garantendo che ogni operazione rifletta la vostra statura senza esporre il vostro nome.
                           </GhostReveal>
                         </p>
                       </div>
@@ -214,9 +214,9 @@ export const LandingPage: React.FC<Props> = ({ onInitialize }) => {
 
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-t border-[#FFFFFF]/10">
                     {[
-                      { id: 'I', title: "Armonia d'Immagine", body: "Proteggere l'identità attraverso una gestione fiduciaria attenta e preventiva." },
-                      { id: 'II', title: "Custodia di Asset", body: "Strutture dedicate alla detenzione di beni di valore nel massimo riserbo." },
-                      { id: 'III', title: "Rappresentanza Silenziosa", body: "Agire per vostro conto nelle negoziazioni più delicate, mantenendo il vostro nome al riparo." }
+                      { id: 'I', title: "Architettura dell'Identità", body: "Schermiamo la vostra presenza nelle negoziazioni più sensibili." },
+                      { id: 'II', title: "Custodia Fiduciaria", body: "Gestione di asset di alto valore nel massimo riserbo pubblico." },
+                      { id: 'III', title: "Diplomazia d'Immagine", body: "Protezione della reputazione attraverso il distacco strategico dal rumore digitale." }
                     ].map((item, index) => (
                       <div key={item.id} className="group border-r border-[#FFFFFF]/5 p-12 md:p-16 hover:bg-[#FFFFFF]/[0.02] transition-colors duration-700 relative overflow-hidden">
                         <div className="absolute top-0 left-0 w-full h-[1px] bg-[#C5A059] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-1000" />
@@ -250,7 +250,7 @@ export const LandingPage: React.FC<Props> = ({ onInitialize }) => {
                     </p>
                     <div className="mt-12">
                       <button className="button-luxury group">
-                        [ RICHIEDI UN INCONTRO PRIVATO ]
+                        [ ACCESSO PRIVATO ]
                       </button>
                     </div>
                   </div>
@@ -261,8 +261,12 @@ export const LandingPage: React.FC<Props> = ({ onInitialize }) => {
             </div>
 
             {/* Footer: Absolute Silence */}
-            <footer className="px-10 md:px-24 py-32 flex flex-col md:flex-row justify-between items-center opacity-30 border-t border-[#FFFFFF]/5 bg-[#060606] relative z-10">
-              <div className="sans-ui text-[9px] tracking-[0.8em] text-[#C5A059]">InsolitoExperiences — Private Office</div>
+            <footer className="px-10 md:px-24 py-32 flex flex-col md:flex-row justify-between items-end opacity-30 border-t border-[#FFFFFF]/5 bg-[#060606] relative z-10">
+              <div className="flex flex-col space-y-4">
+                <div className="sans-ui text-[9px] tracking-[0.8em] text-[#C5A059]">InsolitoExperiences — Private Office</div>
+                <div className="serif text-[10px] text-[#FFFFFF]/40 font-light">Insolito Experiences di Jara Lloctun Michael Sergio | P.IVA 14379200968 | Cernusco sul Naviglio</div>
+              </div>
+
               <div className="flex space-x-12 text-[#C5A059]/20 my-10 md:my-0">
                 {SOLOMON_KNOT}
               </div>
