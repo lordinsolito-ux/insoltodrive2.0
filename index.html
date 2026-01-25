@@ -51,37 +51,54 @@
         }
 
         .luxury-border {
-            border-color: rgba(181, 154, 125, 0.1);
+            border-color: rgba(181, 154, 125, 0.08);
         }
 
-        /* Minimalist luxury scrollbar */
+        .fiduciary-line-bronze {
+            height: 0.5px;
+            background-color: rgba(181, 154, 125, 0.15);
+            width: 100%;
+        }
+
+        /* Minimalist luxury scrollbar - almost invisible */
         ::-webkit-scrollbar {
-            width: 3px;
+            width: 2px;
         }
 
         ::-webkit-scrollbar-track {
-            background: #000;
+            background: transparent;
         }
 
         ::-webkit-scrollbar-thumb {
-            background: var(--bronze);
+            background: rgba(181, 154, 125, 0.05);
+            border-radius: 10px;
         }
 
         .btn-fiduciary {
             background-color: var(--panna);
             color: var(--obsidian);
-            transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
             overflow: hidden;
             border: 1px solid var(--panna);
         }
 
         .btn-fiduciary:hover {
-            letter-spacing: 0.2em;
+            letter-spacing: 0.4em;
             background-color: transparent;
             color: var(--panna);
-            border-color: var(--bronze);
-            box-shadow: 0 0 50px rgba(181, 154, 125, 0.05);
+            border-color: rgba(181, 154, 125, 0.4);
+            box-shadow: 0 0 60px rgba(181, 154, 125, 0.03);
+        }
+
+        .concierge-spacing {
+            padding: 12rem 0;
+        }
+
+        @media (min-width: 1024px) {
+            .concierge-spacing {
+                padding: 18rem 0;
+            }
         }
     </style>
     <script type="importmap">
