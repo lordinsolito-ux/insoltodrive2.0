@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { SOLOMON_KNOT } from '../constants';
+import { SOLOMON_KNOT, CONTENT } from '../constants';
 
 export const GhostNav: React.FC = () => {
     const [isVisible, setIsVisible] = useState(true);
@@ -52,9 +52,9 @@ export const GhostNav: React.FC = () => {
 
                 {/* The Ghost Links: Only visible when scrolled (or always, per user request to show 3 links) */}
                 <div className={`flex space-x-12 transition-opacity duration-700 ${isScrolled ? 'opacity-90' : 'opacity-0 md:opacity-0'}`}>
-                    <a href="#essence" className="sans-ui text-[10px] hover:text-[#C5A059] transition-colors tracking-widest">ESSENZA</a>
-                    <a href="#expertise" className="sans-ui text-[10px] hover:text-[#C5A059] transition-colors tracking-widest">PROTOCOLLI</a>
-                    <a href="#access" className="sans-ui text-[10px] text-[#C5A059] tracking-widest border-b border-[#C5A059]/20 pb-1">ACCESSO PRIVATO</a>
+                    <a href="#essence" className="sans-ui text-[10px] hover:text-[#C5A059] transition-colors tracking-widest">{CONTENT.NAV.ESSENCE}</a>
+                    <a href="#expertise" className="sans-ui text-[10px] hover:text-[#C5A059] transition-colors tracking-widest">{CONTENT.NAV.EXPERTISE}</a>
+                    <a href="#access" className="sans-ui text-[10px] text-[#C5A059] tracking-widest border-b border-[#C5A059]/20 pb-1">{CONTENT.NAV.ACCESS}</a>
                 </div>
             </motion.nav>
         </AnimatePresence>

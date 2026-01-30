@@ -34,25 +34,32 @@ export const GhostReveal: React.FC<GhostRevealProps> = ({
     const stagger = speeds[speed];
 
     if (typeof children === 'string') {
-        const words = children.split(" ");
+        // Split by whitespace but keep the delimiters (spaces) to preserve natural spacing
+        // This avoids the 'margin-right' hack which causes layout shifts
+        const words = children.split(/(\s+)/);
 
         return (
             <div ref={ref} className={`inline-block ${className}`}>
-                {words.map((word, i) => (
-                    <motion.span
-                        key={i}
-                        initial={{ opacity: 0, filter: 'blur(10px)', y: 10 }}
-                        animate={isInView ? { opacity: 1, filter: 'blur(0px)', y: 0 } : {}}
-                        transition={{
-                            duration: 1.2,
-                            delay: delay + (i * stagger),
-                            ease: [0.16, 1, 0.3, 1] // The "Luxury" Ease
-                        }}
-                        className="inline-block mr-[0.25em] last:mr-0"
-                    >
-                        {word}
-                    </motion.span>
-                ))}
+                {words.map((word, i) => {
+                    if (word.match(/\s+/)) {
+                        return <span key={i} className="inline-block whitespace-pre">{word}</span>;
+                    }
+                    return (
+                        <motion.span
+                            key={i}
+                            initial={{ opacity: 0, filter: 'blur(10px)', y: 10 }}
+                            animate={isInView ? { opacity: 1, filter: 'blur(0px)', y: 0 } : {}}
+                            transition={{
+                                duration: 1.2,
+                                delay: delay + (i * 0.05 * (speed === 'fast' ? 0.5 : 1)), // smoother stagger
+                                ease: [0.16, 1, 0.3, 1]
+                            }}
+                            className="inline-block whitespace-nowrap"
+                        >
+                            {word}
+                        </motion.span>
+                    );
+                })}
             </div>
         );
     }

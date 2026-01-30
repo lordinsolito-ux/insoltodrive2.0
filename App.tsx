@@ -4,6 +4,7 @@ import { Mandate, ProtocolStage } from './types';
 import { LandingPage } from './components/LandingPage';
 import { ExecutiveDesk } from './components/ExecutiveDesk';
 import { notifyProtocolSigma } from './services/communicationService';
+import { generateFiduciaryID } from './utils/security';
 
 console.log(
   "%cINSOLITO DRIVE - IMPERIAL SELECTION",
@@ -48,7 +49,7 @@ const App: React.FC = () => {
   };
 
   const createInterposition = () => {
-    const id = `ID-${Math.random().toString(36).substr(2, 4).toUpperCase()}-2026`;
+    const id = generateFiduciaryID("ID", 2026);
     const newMandate: Mandate = {
       id,
       created_at: new Date().toISOString(),

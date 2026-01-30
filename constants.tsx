@@ -24,3 +24,42 @@ export const SYSTEM_ALERTS = [
   "STAGE_III: DATA_OBLIVION_SCHEDULED",
   "SYSTEM: ASYMMETRIC_ENCRYPTION_ACTIVE"
 ];
+
+export const CONTENT = {
+  HERO: {
+    TITLE_LIN_1: "L’arte del silenzio",
+    TITLE_LIN_2: "è l’ultimo vero lusso.",
+    CAPTION: "Un privilegio riservato a chi ha imparato a esistere senza apparire."
+  },
+  ESSENCE: {
+    QUOTE: "\"In un’era di trasparenza forzata, la discrezione è l'unica vera forma di libertà.\"",
+    BODY: "InsolitoDrive nasce per restituirvi il controllo della vostra traccia, trasformando la riservatezza in un asset strategico."
+  },
+  PILLARS: {
+    TITLE: "I Pilastri del Silenzio.",
+    ITEMS: [
+      { id: 'I', title: "Architettura dell'Identità", body: "Schermiamo la vostra presenza nelle negoziazioni più sensibili." },
+      { id: 'II', title: "Custodia Fiduciaria", body: "Gestione di asset di alto valore nel massimo riserbo pubblico." },
+      { id: 'III', title: "Diplomazia d'Immagine", body: "Protezione della reputazione attraverso il distacco strategico dal rumore digitale." }
+    ]
+  },
+  FOUNDER: {
+    NAME: "Michael Jara.",
+    QUOTE: "\"Curatore di equilibri fiduciari. La mia missione è agire come il filtro necessario tra la vostra ambizione e lo sguardo del mondo.\"",
+    SIGNATURE: "Michael Jara",
+    SIGNATURE_LABEL: "[ LEGGI LA VISIONE ]"
+  },
+  ACCESS: {
+    TITLE_1: "Ogni grande alleanza",
+    TITLE_2: "inizia con un dialogo riservato.",
+    BUTTON: "[ ACCESSO PRIVATO ]",
+    LEGAL_1: "Insolito Experiences di Jara Lloctun Michael Sergio",
+    LEGAL_2: "P.IVA 14379200968 | Cernusco sul Naviglio",
+    COPYRIGHT: "© 2026 INSOLITO DRIVE"
+  },
+  NAV: {
+    ESSENCE: "ESSENZA",
+    EXPERTISE: "PROTOCOLLI",
+    ACCESS: "ACCESSO PRIVATO"
+  }
+};
