@@ -7,6 +7,7 @@ import { GhostReveal } from './GhostReveal';
 import { GhostNav } from './GhostNav';
 import { SignatureModal } from './SignatureModal';
 import { FiduciaryLogin } from './FiduciaryLogin';
+import { TacticalScenarios } from './TacticalScenarios';
 
 // Asset Paths (Local)
 const ARCH_IMG = "/assets/arch.png";
@@ -177,6 +178,8 @@ export const LandingPage: React.FC<Props> = ({ onInitialize }) => {
                   </div>
                 </div>
               </section>
+
+              <TacticalScenarios />
 
               {/* [ACT V: THE THRESHOLD] Access & Legal Footer */}
               <section id="access" className="py-40 min-h-[60vh] flex flex-col justify-center relative overflow-hidden">
