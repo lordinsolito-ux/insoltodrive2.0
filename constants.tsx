@@ -52,7 +52,10 @@ export const CONTENT = {
   ACCESS: {
     TITLE_1: "Ogni grande alleanza",
     TITLE_2: "inizia con un dialogo riservato.",
-    BUTTON: "[ ACCESSO PRIVATO ]",
+    BUTTON_CORP: "[ CORPORATE FAST TRACK ]",
+    BUTTON_PRIV: "[ FIDUCIARY VAULT ]",
+    DESC_CORP: "Aziende & P.IVA",
+    DESC_PRIV: "Private & Escrow (SPID)",
     LEGAL_1: "Insolito Experiences di Jara Lloctun Michael Sergio",
     LEGAL_2: "P.IVA 14379200968 | Cernusco sul Naviglio",
     COPYRIGHT: "© 2026 INSOLITO DRIVE"

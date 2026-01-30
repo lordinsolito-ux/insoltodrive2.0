@@ -6,6 +6,7 @@ import { VerticalSpine } from './VerticalSpine';
 import { GhostReveal } from './GhostReveal';
 import { GhostNav } from './GhostNav';
 import { SignatureModal } from './SignatureModal';
+import { FiduciaryLogin } from './FiduciaryLogin';
 
 // Asset Paths (Local)
 const ARCH_IMG = "/assets/arch.png";
@@ -20,6 +21,7 @@ interface Props {
 export const LandingPage: React.FC<Props> = ({ onInitialize }) => {
   const [ritualComplete, setRitualComplete] = useState(false);
   const [isSignatureOpen, setIsSignatureOpen] = useState(false);
+  const [isFiduciaryOpen, setIsFiduciaryOpen] = useState(false);
   const { scrollYProgress } = useScroll();
 
   // Founder Focus Logic
@@ -30,6 +32,15 @@ export const LandingPage: React.FC<Props> = ({ onInitialize }) => {
     <div className={`min-h-screen transition-colors duration-[2000ms] ease-in-out ${isFounderInView ? 'bg-[#060606]' : 'bg-[#0D0D0D]'} text-[#FFFFFF] selection:bg-[#B59A7D] selection:text-[#0D0D0D] overflow-x-hidden`}>
 
       <SignatureModal isOpen={isSignatureOpen} onClose={() => setIsSignatureOpen(false)} />
+      <FiduciaryLogin
+        isOpen={isFiduciaryOpen}
+        onClose={() => setIsFiduciaryOpen(false)}
+        onAuthenticated={() => {
+          setIsFiduciaryOpen(false);
+          // TODO: Redirect to God Mode or Secret Dashboard
+          console.log("ACCESS GRANTED: WELCOME TO THE VAULT");
+        }}
+      />
 
       <AnimatePresence mode="wait">
         {!ritualComplete ? (
@@ -178,10 +189,26 @@ export const LandingPage: React.FC<Props> = ({ onInitialize }) => {
                     </h2>
                   </div>
 
-                  <div className="mt-12">
-                    <button className="button-luxury group">
-                      {CONTENT.ACCESS.BUTTON}
-                    </button>
+                  <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+                    {/* CORPORATE TRACK */}
+                    <div className="group cursor-pointer">
+                      <button className="w-full border border-[#FFFFFF]/10 bg-[#FFFFFF]/[0.02] py-4 text-[10px] tracking-[0.2em] text-[#C5A059] group-hover:bg-[#C5A059] group-hover:text-[#000000] transition-all duration-500 uppercase">
+                        {CONTENT.ACCESS.BUTTON_CORP}
+                      </button>
+                      <p className="mt-3 serif text-[10px] text-[#FFFFFF]/30 group-hover:text-[#FFFFFF]/60 transition-colors uppercase tracking-widest">
+                        {CONTENT.ACCESS.DESC_CORP}
+                      </p>
+                    </div>
+
+                    {/* FIDUCIARY TRACK */}
+                    <div className="group cursor-pointer" onClick={() => setIsFiduciaryOpen(true)}>
+                      <button className="w-full border border-[#C5A059]/30 bg-[#C5A059]/[0.05] py-4 text-[10px] tracking-[0.2em] text-[#FFFFFF] group-hover:bg-[#FFFFFF] group-hover:text-[#000000] transition-all duration-500 uppercase">
+                        {CONTENT.ACCESS.BUTTON_PRIV}
+                      </button>
+                      <p className="mt-3 serif text-[10px] text-[#FFFFFF]/30 group-hover:text-[#FFFFFF]/60 transition-colors uppercase tracking-widest">
+                        {CONTENT.ACCESS.DESC_PRIV}
+                      </p>
+                    </div>
                   </div>
 
                   {/* Minimal Legal Footer */}
